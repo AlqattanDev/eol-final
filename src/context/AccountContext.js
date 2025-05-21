@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import { mockResources } from '../data/mockData';
+import { getAccounts, getEOLResources } from '../services/api';
+import { mapResourcesToFrontend } from '../utils/dataMappers';
 
 // Sample accounts data
 const sampleAccounts = [
@@ -46,6 +48,45 @@ export const AccountProvider = ({ children }) => {
   // State for accounts and currently selected account
   const [accounts, setAccounts] = useState(sampleAccounts);
   const [currentAccount, setCurrentAccount] = useState(null);
+  const [resources, setResources] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Fetch accounts from the backend
+  useEffect(() => {
+    const fetchAccounts = async () => {
+      try {
+        setLoading(true);
+        const backendAccounts = await getAccounts();
+        
+        if (backendAccounts && backendAccounts.length > 0) {
+          // Map backend accounts to our format
+          const formattedAccounts = backendAccounts.map((account, index) => ({
+            id: account.id,
+            name: account.name || `Account ${account.id}`,
+            awsAccountId: account.id,
+            description: `AWS Account ${account.id}`,
+            color: sampleAccounts[index % sampleAccounts.length].color, // Reuse colors from sample
+          }));
+          
+          setAccounts(formattedAccounts);
+        }
+      } catch (err) {
+        console.error('Failed to fetch accounts:', err);
+        setError('Failed to load accounts');
+        // Fall back to sample accounts
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    // Add delay to ensure API is ready
+    const timer = setTimeout(() => {
+      fetchAccounts();
+    }, 3000);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   // Set the first account as default on initial load
   useEffect(() => {
@@ -54,15 +95,40 @@ export const AccountProvider = ({ children }) => {
     }
   }, [accounts, currentAccount]);
 
-  // Memoized current account resources
+  // Fetch resources when the current account changes
+  useEffect(() => {
+    const fetchResources = async () => {
+      if (!currentAccount) return;
+      
+      try {
+        setLoading(true);
+        const accountResources = await getEOLResources(currentAccount.awsAccountId);
+        // Map backend data to frontend format
+        const mappedResources = mapResourcesToFrontend(accountResources);
+        setResources(mappedResources);
+      } catch (err) {
+        console.error('Failed to fetch resources:', err);
+        setError('Failed to load resources');
+        // Fall back to mock data for this account
+        const accountIndex = parseInt(currentAccount.id.split('-')[1] || '1') - 1;
+        setResources(mockResources.filter((resource, index) => index % 3 === accountIndex));
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchResources();
+  }, [currentAccount]);
+
+  // Memoized current account resources with fallback to mock data
   const currentAccountResources = useMemo(() => {
     if (!currentAccount) return mockResources;
+    if (resources.length > 0) return resources;
     
-    // In a real app, we would filter by AWS account ID
-    // For the mock, we'll just filter a subset based on the account index
-    const accountIndex = parseInt(currentAccount.id.split('-')[1]) - 1;
+    // Fallback to mock data if backend request fails
+    const accountIndex = parseInt(currentAccount.id.split('-')[1] || '1') - 1;
     return mockResources.filter((resource, index) => index % 3 === accountIndex);
-  }, [currentAccount]);
+  }, [currentAccount, resources]);
 
   // Switch account
   const switchAccount = (accountId) => {
@@ -106,6 +172,8 @@ export const AccountProvider = ({ children }) => {
     accounts,
     currentAccount,
     currentAccountResources,
+    loading,
+    error,
     switchAccount,
     addAccount,
     updateAccount,

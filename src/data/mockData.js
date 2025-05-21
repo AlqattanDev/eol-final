@@ -29,7 +29,7 @@ const generateResourceName = (type, index) => {
   const prefixes = {
     EC2: ['web', 'app', 'worker', 'batch', 'test', 'dev', 'prod'],
     RDS: ['db', 'postgress', 'mysql', 'aurora', 'redis', 'cache'],
-    AKS: ['cluster', 'k8s', 'kube', 'container'],
+    EKS: ['cluster', 'k8s', 'kube', 'container'],
     Lambda: ['func', 'processor', 'handler', 'worker', 'trigger']
   };
   
@@ -40,7 +40,7 @@ const generateResourceName = (type, index) => {
 // Generate mock resources
 const generateMockResources = (count) => {
   const resources = [];
-  const types = ['EC2', 'RDS', 'AKS', 'Lambda'];
+  const types = ['EC2', 'RDS', 'EKS', 'Lambda'];
   
   for (let i = 0; i < count; i++) {
     const type = types[Math.floor(Math.random() * types.length)];

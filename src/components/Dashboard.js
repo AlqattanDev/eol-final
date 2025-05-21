@@ -3,7 +3,8 @@ import {
   ServerIcon,
   AlertTriangle,
   DollarSign,
-  Building2
+  Building2,
+  Loader2
 } from 'lucide-react';
 import StatusChart from './StatusChart';
 import TypeDistributionChart from './TypeDistributionChart';
@@ -31,12 +32,36 @@ import {
 } from './ui/animations';
 
 const Dashboard = () => {
-  const { currentAccount, currentAccountResources } = useAccount();
+  const { currentAccount, currentAccountResources, loading, error } = useAccount();
   
   // Get stats for the current account resources using the utility function
   const stats = useMemo(() => {
     return calculateResourceStats(currentAccountResources);
   }, [currentAccountResources]);
+  
+  // Loading state
+  if (loading) {
+    return (
+      <PageContainer>
+        <div className="flex items-center justify-center h-96">
+          <Loader2 className="h-10 w-10 animate-spin text-primary opacity-50" />
+          <span className="ml-4 text-lg text-muted-foreground">Loading dashboard data...</span>
+        </div>
+      </PageContainer>
+    );
+  }
+  
+  // Error state
+  if (error) {
+    return (
+      <PageContainer>
+        <div className="flex items-center justify-center h-96">
+          <AlertTriangle className="h-10 w-10 text-destructive" />
+          <span className="ml-4 text-lg text-muted-foreground">{error}</span>
+        </div>
+      </PageContainer>
+    );
+  }
 
   return (
     <PageContainer>

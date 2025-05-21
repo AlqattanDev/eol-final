@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { getHealthStatus } from './services/api';
 
 // Pages
 import Dashboard from './components/Dashboard';
@@ -16,6 +17,27 @@ import { AccountProvider } from './context/AccountContext';
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [apiStatus, setApiStatus] = useState('checking');
+
+  // Check API health on initial load
+  useEffect(() => {
+    const checkApiHealth = async () => {
+      try {
+        const health = await getHealthStatus();
+        setApiStatus(health.status === 'up' ? 'connected' : 'disconnected');
+      } catch (err) {
+        console.error('API health check failed:', err);
+        setApiStatus('disconnected');
+      }
+    };
+    
+    // Add a delay to ensure backend is ready
+    const timer = setTimeout(() => {
+      checkApiHealth();
+    }, 2000);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   // Check user's preferred color scheme on initial load
   useEffect(() => {
@@ -42,6 +64,15 @@ function App() {
       <div className={`min-h-screen ${darkMode ? 'dark' : ''} relative`}>
         {/* Animated Background - now at root level for full page effect */}
         <AnimatedBackground />
+        
+        {/* API Status indicator */}
+        {apiStatus !== 'connected' && (
+          <div className={`fixed top-0 left-0 right-0 z-50 p-2 text-center text-sm text-white ${
+            apiStatus === 'checking' ? 'bg-yellow-600' : 'bg-red-600'
+          }`}>
+            {apiStatus === 'checking' ? 'Connecting to API...' : 'API Disconnected - Using mock data'}
+          </div>
+        )}
         
         {/* Navbar */}
         <Navbar 
