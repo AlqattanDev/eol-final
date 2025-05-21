@@ -1,0 +1,129 @@
+/* AnimatedBackground Styles */
+.wrapper {
+  @apply fixed inset-0 overflow-hidden;
+  z-index: -1;
+}
+
+.gradient {
+  @apply bg-gradient-to-r from-primary-700/5 via-primary-500/5 to-primary-300/5 dark:from-primary-700/20 dark:via-primary-500/20 dark:to-primary-300/20 animate-gradient-x;
+}
+
+.grid {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.particle {
+  @apply absolute rounded-full;
+  animation: float 15s infinite ease-in-out;
+  opacity: 0.15;
+}
+
+.particle1 {
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, theme('colors.primary.400'), transparent 70%);
+  left: 10%;
+  top: 20%;
+  animation-delay: 0s;
+}
+
+.particle2 {
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, theme('colors.primary.300'), transparent 80%);
+  right: 15%;
+  top: 30%;
+  animation-delay: -5s;
+  opacity: 0.1;
+}
+
+.particle3 {
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, theme('colors.success.DEFAULT'), transparent 70%);
+  left: 30%;
+  bottom: 25%;
+  animation-delay: -2s;
+}
+
+.particle4 {
+  width: 25px;
+  height: 25px;
+  background: radial-gradient(circle, theme('colors.destructive.DEFAULT'), transparent 70%);
+  right: 30%;
+  bottom: 15%;
+  animation-delay: -7s;
+}
+
+.particle5 {
+  width: 45px;
+  height: 45px;
+  background: radial-gradient(circle, theme('colors.primary.600'), transparent 70%);
+  left: 50%;
+  top: 50%;
+  animation-delay: -3s;
+}
+
+.floatingShape {
+  @apply absolute bg-white dark:bg-slate-800 rounded-xl opacity-5 dark:opacity-10;
+  animation: floatRotate 20s infinite ease-in-out;
+}
+
+.floatingShape1 {
+  width: 70px;
+  height: 70px;
+  top: 15%;
+  right: 20%;
+  transform: rotate(15deg);
+  animation-delay: -2s;
+}
+
+.floatingShape2 {
+  width: 80px;
+  height: 80px;
+  bottom: 10%;
+  left: 15%;
+  transform: rotate(30deg);
+  animation-delay: -6s;
+}
+
+.floatingShape3 {
+  width: 50px;
+  height: 50px;
+  top: 40%;
+  left: 30%;
+  transform: rotate(45deg);
+  animation-delay: -10s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  50% {
+    transform: translateY(0) translateX(20px);
+  }
+  75% {
+    transform: translateY(20px) translateX(10px);
+  }
+}
+
+@keyframes floatRotate {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-30px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(0) rotate(10deg);
+  }
+  75% {
+    transform: translateY(30px) rotate(5deg);
+  }
+}
