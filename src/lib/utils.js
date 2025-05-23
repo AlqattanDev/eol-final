@@ -1,6 +1,5 @@
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import { getResourceStatus } from '../data/mockData';
 
 /**
  * Combines multiple class names with tailwind-merge to handle conflicts
@@ -9,17 +8,6 @@ export function cn(...inputs) {
   return twMerge(clsx(inputs));
 }
 
-/**
- * Formats a number as currency
- */
-export function formatCurrency(amount) {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(amount);
-}
 
 /**
  * Returns a color based on status
@@ -38,22 +26,45 @@ export function getStatusColor(status) {
 }
 
 /**
+ * Calculates resource status based on EOL date
+ * @param {Date|string} eolDate - The end-of-life date
+ * @returns {string} Resource status: 'expired', 'expiring', 'supported', or 'unknown'
+ */
+export function calculateResourceStatus(eolDate) {
+  if (!eolDate) return 'unknown';
+  
+  const today = new Date();
+  const eol = new Date(eolDate);
+  
+  if (eol < today) {
+    return 'expired';
+  }
+  
+  const ninetyDaysFromNow = new Date();
+  ninetyDaysFromNow.setDate(today.getDate() + 90);
+  
+  if (eol <= ninetyDaysFromNow) {
+    return 'expiring';
+  }
+  
+  return 'supported';
+}
+
+/**
  * Calculates resource statistics from an array of resources
  * @param {Array} resources - Array of resource objects
- * @returns {Object} Object containing total, expired, expiring, supported, and totalCost
+ * @returns {Object} Object containing total, expired, expiring, supported
  */
 export function calculateResourceStats(resources) {
   let total = 0;
   let expired = 0;
   let expiring = 0;
   let supported = 0;
-  let totalCost = 0;
   
   resources.forEach(resource => {
     total++;
-    totalCost += resource.monthlyCost;
     
-    const status = getResourceStatus(resource.eolDate);
+    const status = calculateResourceStatus(resource.eolDate);
     if (status === 'expired') expired++;
     else if (status === 'expiring') expiring++;
     else supported++;
@@ -63,7 +74,6 @@ export function calculateResourceStats(resources) {
     total,
     expired,
     expiring,
-    supported,
-    totalCost
+    supported
   };
 }

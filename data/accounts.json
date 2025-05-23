@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1747941442953,
+    "accountId": "account-1",
+    "name": "Account 1",
+    "color": "#3B82F6",
+    "description": "",
+    "awsRegion": "us-east-1",
+    "environment": "unknown",
+    "sourceServer": "imported",
+    "lastUpdated": "2025-05-22T19:17:22.953Z"
+  },
+  {
+    "id": 1747941442953,
+    "accountId": "123456789012",
+    "name": "Mock AWS Account 123456789012",
+    "color": "#FF9500",
+    "description": "Test account from test-collector",
+    "awsRegion": "us-east-1",
+    "environment": "test",
+    "sourceServer": "test-collector",
+    "lastUpdated": "2025-05-22T19:17:22.953Z"
+  }
+]

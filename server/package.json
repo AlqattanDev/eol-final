@@ -1,0 +1,31 @@
+{
+  "name": "eol-dashboard-server",
+  "version": "1.0.0",
+  "description": "Server-side components for EOL Dashboard - portable database and AWS data fetching",
+  "type": "module",
+  "main": "portable-db.js",
+  "scripts": {
+    "fetch": "node aws-fetcher.js",
+    "db": "node portable-db.js",
+    "deploy": "./deploy.sh",
+    "install-deps": "npm install better-sqlite3 @aws-sdk/client-ec2 @aws-sdk/client-ssm @aws-sdk/client-rds @aws-sdk/client-eks @aws-sdk/client-lambda @aws-sdk/client-sts"
+  },
+  "dependencies": {
+    "better-sqlite3": "^8.7.0",
+    "@aws-sdk/client-ec2": "^3.0.0",
+    "@aws-sdk/client-ssm": "^3.0.0",
+    "@aws-sdk/client-rds": "^3.0.0",
+    "@aws-sdk/client-eks": "^3.0.0",
+    "@aws-sdk/client-lambda": "^3.0.0",
+    "@aws-sdk/client-sts": "^3.0.0"
+  },
+  "keywords": [
+    "aws",
+    "eol",
+    "database",
+    "portable",
+    "sqlite"
+  ],
+  "author": "EOL Dashboard",
+  "license": "MIT"
+}

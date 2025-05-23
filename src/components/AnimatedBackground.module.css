@@ -1,129 +1,244 @@
-/* AnimatedBackground Styles */
+/* Enhanced AnimatedBackground Styles */
 .wrapper {
   @apply fixed inset-0 overflow-hidden;
   z-index: -1;
 }
 
 .gradient {
-  @apply bg-gradient-to-r from-primary-700/5 via-primary-500/5 to-primary-300/5 dark:from-primary-700/20 dark:via-primary-500/20 dark:to-primary-300/20 animate-gradient-x;
+  @apply absolute inset-0;
+  background: linear-gradient(
+    135deg,
+    hsl(var(--primary) / 0.1) 0%,
+    hsl(var(--accent) / 0.05) 25%,
+    hsl(var(--success) / 0.08) 50%,
+    hsl(var(--primary) / 0.15) 75%,
+    hsl(var(--warning) / 0.1) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 20s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 50% 50%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
 }
 
 .grid {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
-  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 2px, transparent 2px);
+  background-size: 60px 60px;
+  animation: grid-move 40s linear infinite;
+}
+
+@keyframes grid-move {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(60px, 60px);
+  }
 }
 
 .particle {
-  @apply absolute rounded-full;
-  animation: float 15s infinite ease-in-out;
-  opacity: 0.15;
+  @apply absolute rounded-full blur-sm;
+  animation: float 20s infinite ease-in-out;
+  filter: brightness(1.2);
 }
 
 .particle1 {
-  width: 50px;
-  height: 50px;
-  background: radial-gradient(circle, theme('colors.primary.400'), transparent 70%);
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(
+    circle at 30% 30%, 
+    hsl(var(--primary) / 0.8), 
+    hsl(var(--primary) / 0.4) 30%, 
+    transparent 70%
+  );
   left: 10%;
   top: 20%;
   animation-delay: 0s;
+  animation-duration: 18s;
 }
 
 .particle2 {
-  width: 40px;
-  height: 40px;
-  background: radial-gradient(circle, theme('colors.primary.300'), transparent 80%);
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(
+    circle at 40% 40%, 
+    hsl(var(--accent) / 0.6), 
+    hsl(var(--accent) / 0.3) 40%, 
+    transparent 70%
+  );
   right: 15%;
   top: 30%;
   animation-delay: -5s;
-  opacity: 0.1;
+  animation-duration: 22s;
 }
 
 .particle3 {
-  width: 30px;
-  height: 30px;
-  background: radial-gradient(circle, theme('colors.success.DEFAULT'), transparent 70%);
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(
+    circle at 50% 50%, 
+    hsl(var(--success) / 0.7), 
+    hsl(var(--success) / 0.3) 35%, 
+    transparent 65%
+  );
   left: 30%;
   bottom: 25%;
   animation-delay: -2s;
+  animation-duration: 20s;
 }
 
 .particle4 {
-  width: 25px;
-  height: 25px;
-  background: radial-gradient(circle, theme('colors.destructive.DEFAULT'), transparent 70%);
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(
+    circle at 35% 35%, 
+    hsl(var(--warning) / 0.6), 
+    hsl(var(--warning) / 0.3) 40%, 
+    transparent 65%
+  );
   right: 30%;
   bottom: 15%;
   animation-delay: -7s;
+  animation-duration: 16s;
 }
 
 .particle5 {
-  width: 45px;
-  height: 45px;
-  background: radial-gradient(circle, theme('colors.primary.600'), transparent 70%);
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(
+    circle at 45% 45%, 
+    hsl(var(--primary) / 0.5), 
+    hsl(var(--primary) / 0.2) 40%, 
+    transparent 70%
+  );
   left: 50%;
   top: 50%;
   animation-delay: -3s;
+  animation-duration: 24s;
 }
 
 .floatingShape {
-  @apply absolute bg-white dark:bg-slate-800 rounded-xl opacity-5 dark:opacity-10;
-  animation: floatRotate 20s infinite ease-in-out;
+  @apply absolute rounded-2xl;
+  background: linear-gradient(
+    135deg, 
+    rgba(255, 255, 255, 0.1), 
+    rgba(255, 255, 255, 0.05)
+  );
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: floatRotate 25s infinite ease-in-out;
 }
 
 .floatingShape1 {
-  width: 70px;
-  height: 70px;
+  width: 100px;
+  height: 100px;
   top: 15%;
   right: 20%;
   transform: rotate(15deg);
   animation-delay: -2s;
+  animation-duration: 22s;
 }
 
 .floatingShape2 {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   bottom: 10%;
   left: 15%;
   transform: rotate(30deg);
   animation-delay: -6s;
+  animation-duration: 28s;
 }
 
 .floatingShape3 {
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
   top: 40%;
   left: 30%;
   transform: rotate(45deg);
   animation-delay: -10s;
+  animation-duration: 20s;
 }
 
 @keyframes float {
   0%, 100% {
-    transform: translateY(0) translateX(0);
+    transform: translateY(0) translateX(0) scale(1);
   }
   25% {
-    transform: translateY(-20px) translateX(10px);
+    transform: translateY(-30px) translateX(15px) scale(1.05);
   }
   50% {
-    transform: translateY(0) translateX(20px);
+    transform: translateY(0) translateX(30px) scale(1.1);
   }
   75% {
-    transform: translateY(20px) translateX(10px);
+    transform: translateY(30px) translateX(15px) scale(1.05);
   }
 }
 
 @keyframes floatRotate {
   0%, 100% {
-    transform: translateY(0) rotate(0deg);
+    transform: translateY(0) rotate(0deg) scale(1);
   }
   25% {
-    transform: translateY(-30px) rotate(5deg);
+    transform: translateY(-40px) rotate(10deg) scale(1.1);
   }
   50% {
-    transform: translateY(0) rotate(10deg);
+    transform: translateY(0) rotate(20deg) scale(1.15);
   }
   75% {
-    transform: translateY(30px) rotate(5deg);
+    transform: translateY(40px) rotate(10deg) scale(1.1);
+  }
+}
+
+/* Additional glow orbs */
+.glowOrb {
+  @apply absolute rounded-full;
+  filter: blur(40px);
+  opacity: 0.3;
+  animation: pulse-orb 8s ease-in-out infinite;
+}
+
+.glowOrb1 {
+  width: 200px;
+  height: 200px;
+  background: hsl(var(--primary) / 0.4);
+  top: -50px;
+  left: -50px;
+  animation-delay: 0s;
+}
+
+.glowOrb2 {
+  width: 300px;
+  height: 300px;
+  background: hsl(var(--success) / 0.3);
+  bottom: -100px;
+  right: -100px;
+  animation-delay: -4s;
+}
+
+@keyframes pulse-orb {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.5;
   }
 }

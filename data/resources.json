@@ -1,0 +1,231 @@
+[
+  {
+    "id": 1747941442953.2134,
+    "resourceId": "prod-postgres-db",
+    "name": "prod-postgres-db",
+    "service": "RDS",
+    "region": "us-west-2",
+    "eolDate": "2026-11-13",
+    "eosDate": "2026-11-13",
+    "status": "supported",
+    "account": "123456789012",
+    "type": "database",
+    "description": "postgres 13.15 database instance",
+    "sourceServer": "imported",
+    "lastUpdated": "2025-05-22T19:17:22.953Z",
+    "metadata": {
+      "engine": "postgres",
+      "engineVersion": "13.15",
+      "instanceClass": "db.t3.medium",
+      "status": "available",
+      "resourceType": "instance"
+    }
+  },
+  {
+    "id": 1747941442953.9026,
+    "resourceId": "mysql-cluster-prod",
+    "name": "mysql-cluster-prod",
+    "service": "RDS",
+    "region": "us-west-2",
+    "eolDate": "2025-10-31",
+    "eosDate": "2025-10-31",
+    "status": "supported",
+    "account": "123456789012",
+    "type": "cluster",
+    "description": "mysql 5.7.44 database cluster",
+    "sourceServer": "imported",
+    "lastUpdated": "2025-05-22T19:17:22.953Z",
+    "metadata": {
+      "engine": "mysql",
+      "engineVersion": "5.7.44",
+      "status": "available",
+      "clusterMembers": 2,
+      "resourceType": "cluster"
+    }
+  },
+  {
+    "id": 1747941442953.4927,
+    "resourceId": "arn:aws:eks:us-east-1:123456789012:cluster/production-cluster",
+    "name": "production-cluster",
+    "service": "EKS",
+    "region": "us-west-2",
+    "eolDate": "2024-10-01",
+    "eosDate": "2024-10-01",
+    "status": "expired",
+    "account": "123456789012",
+    "type": "cluster",
+    "description": "Kubernetes cluster v1.23",
+    "sourceServer": "imported",
+    "lastUpdated": "2025-05-22T19:17:22.953Z",
+    "metadata": {
+      "version": "1.23",
+      "status": "ACTIVE",
+      "platformVersion": "eks.15"
+    }
+  },
+  {
+    "id": 1747941442953.1897,
+    "resourceId": "arn:aws:eks:us-east-1:123456789012:cluster/dev-cluster",
+    "name": "dev-cluster",
+    "service": "EKS",
+    "region": "us-west-2",
+    "eolDate": "2026-01-01",
+    "eosDate": "2026-01-01",
+    "status": "supported",
+    "account": "123456789012",
+    "type": "cluster",
+    "description": "Kubernetes cluster v1.27",
+    "sourceServer": "imported",
+    "lastUpdated": "2025-05-22T19:17:22.953Z",
+    "metadata": {
+      "version": "1.27",
+      "status": "ACTIVE",
+      "platformVersion": "eks.3"
+    }
+  },
+  {
+    "id": 1747941442953.025,
+    "resourceId": "arn:aws:lambda:us-east-1:123456789012:function:legacy-processor",
+    "name": "legacy-processor",
+    "service": "Lambda",
+    "region": "us-west-2",
+    "eolDate": "2024-11-27",
+    "eosDate": "2024-11-27",
+    "status": "expired",
+    "account": "123456789012",
+    "type": "function",
+    "description": "python3.7 function ($LATEST)",
+    "sourceServer": "imported",
+    "lastUpdated": "2025-05-22T19:17:22.953Z",
+    "metadata": {
+      "runtime": "python3.7",
+      "version": "$LATEST",
+      "handler": "lambda_function.lambda_handler",
+      "timeout": 30,
+      "memorySize": 128
+    }
+  },
+  {
+    "id": 1747941442953.1191,
+    "resourceId": "arn:aws:lambda:us-east-1:123456789012:function:api-handler",
+    "name": "api-handler",
+    "service": "Lambda",
+    "region": "us-west-2",
+    "eolDate": "2027-04-30",
+    "eosDate": "2027-04-30",
+    "status": "supported",
+    "account": "123456789012",
+    "type": "function",
+    "description": "nodejs20.x function (1)",
+    "sourceServer": "imported",
+    "lastUpdated": "2025-05-22T19:17:22.953Z",
+    "metadata": {
+      "runtime": "nodejs20.x",
+      "version": "1",
+      "handler": "index.handler",
+      "timeout": 15,
+      "memorySize": 256
+    }
+  },
+  {
+    "id": 1747941442953.7834,
+    "resourceId": "arn:aws:lambda:us-east-1:123456789012:function:data-processor",
+    "name": "data-processor",
+    "service": "Lambda",
+    "region": "us-west-2",
+    "eolDate": "2028-09-30",
+    "eosDate": "2028-09-30",
+    "status": "supported",
+    "account": "123456789012",
+    "type": "function",
+    "description": "java17 function (2)",
+    "sourceServer": "imported",
+    "lastUpdated": "2025-05-22T19:17:22.953Z",
+    "metadata": {
+      "runtime": "java17",
+      "version": "2",
+      "handler": "com.example.Handler::handleRequest",
+      "timeout": 60,
+      "memorySize": 512
+    }
+  },
+  {
+    "id": 1747941442953.8652,
+    "resourceId": "i-1234567890abcdef0",
+    "name": "Web Server 1",
+    "service": "EC2",
+    "region": "us-west-2",
+    "eolDate": "2030-12-31",
+    "eosDate": "2030-12-31",
+    "status": "supported",
+    "account": "123456789012",
+    "type": "instance",
+    "description": "t3.medium instance (SSM managed)",
+    "sourceServer": "imported",
+    "lastUpdated": "2025-05-22T19:17:22.953Z",
+    "metadata": {
+      "instanceType": "t3.medium",
+      "state": "running",
+      "platform": "Linux",
+      "source": "ec2-and-ssm",
+      "ssmAgentVersion": "3.2.1550.0",
+      "ssmPingStatus": "Online",
+      "ssmPlatformType": "Linux",
+      "ssmPlatformName": "Amazon Linux"
+    }
+  },
+  {
+    "id": 1747941442953.2866,
+    "resourceId": "i-0987654321fedcba0",
+    "name": "Database Server",
+    "service": "EC2",
+    "region": "us-west-2",
+    "eolDate": "2024-12-31",
+    "eosDate": "2024-12-31",
+    "status": "expired",
+    "account": "123456789012",
+    "type": "instance",
+    "description": "m1.large instance",
+    "sourceServer": "imported",
+    "lastUpdated": "2025-05-22T19:17:22.953Z",
+    "metadata": {
+      "instanceType": "m1.large",
+      "state": "running",
+      "source": "ec2-only"
+    }
+  },
+  {
+    "id": 1747941442953.0847,
+    "resourceId": "mi-1111222233334444",
+    "name": "Managed Instance",
+    "service": "EC2",
+    "region": "us-west-2",
+    "eolDate": "2030-12-31",
+    "eosDate": "2030-12-31",
+    "status": "supported",
+    "account": "123456789012",
+    "type": "instance",
+    "description": "SSM managed instance (Windows)",
+    "sourceServer": "imported",
+    "lastUpdated": "2025-05-22T19:17:22.953Z",
+    "metadata": {
+      "source": "ssm-only",
+      "ssmAgentVersion": "3.2.1550.0",
+      "ssmPingStatus": "Online",
+      "ssmPlatformType": "Windows"
+    }
+  },
+  {
+    "id": 1747941442954.9026,
+    "resourceId": "resource-1747941442954.9026",
+    "name": "Test Server",
+    "service": "EC2",
+    "region": "us-east-1",
+    "eolDate": "2025-12-31",
+    "eosDate": "2025-12-31",
+    "status": "supported",
+    "account": "test-account",
+    "type": "service",
+    "description": ""
+  }
+]

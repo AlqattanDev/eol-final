@@ -11,6 +11,7 @@ import {
 } from 'chart.js';
 import useChartAnimation from '../hooks/useChartAnimation';
 import ChartCard from './ui/ChartCard';
+import { getChartColors, getChartTheme, animation, borderRadius } from '../utils/styleUtils';
 
 // Register ChartJS components
 ChartJS.register(
@@ -26,6 +27,9 @@ ChartJS.register(
  * TypeDistributionChart shows distribution of resources by type with animations
  */
 const TypeDistributionChart = ({ resources }) => {
+  // Check if dark mode is active
+  const isDarkMode = document.documentElement.classList.contains('dark');
+  const chartTheme = getChartTheme(isDarkMode);
   // Calculate data from resources
   const chartInfo = useMemo(() => {
     // Count resources by type
@@ -55,26 +59,11 @@ const TypeDistributionChart = ({ resources }) => {
       {
         label: 'Resources by Type',
         data: animatedData,
-        backgroundColor: [
-          'rgba(14, 165, 233, 0.7)',
-          'rgba(168, 85, 247, 0.7)',
-          'rgba(249, 115, 22, 0.7)',
-          'rgba(34, 197, 94, 0.7)',
-        ],
-        borderColor: [
-          'rgb(14, 165, 233)',
-          'rgb(168, 85, 247)',
-          'rgb(249, 115, 22)',
-          'rgb(34, 197, 94)',
-        ],
-        borderWidth: 1,
-        borderRadius: 6,
-        hoverBackgroundColor: [
-          'rgba(14, 165, 233, 0.9)',
-          'rgba(168, 85, 247, 0.9)',
-          'rgba(249, 115, 22, 0.9)',
-          'rgba(34, 197, 94, 0.9)',
-        ],
+        backgroundColor: getChartColors('background', 0.8),
+        borderColor: getChartColors('border'),
+        borderWidth: 2,
+        borderRadius: parseInt(borderRadius.default),
+        hoverBackgroundColor: getChartColors('background', 1),
       },
     ],
   };
@@ -91,7 +80,7 @@ const TypeDistributionChart = ({ resources }) => {
       },
       tooltip: {
         animation: {
-          duration: 400,
+          duration: parseInt(animation.duration.slow),
           easing: 'easeOutQuart'
         }
       }
@@ -101,21 +90,35 @@ const TypeDistributionChart = ({ resources }) => {
         beginAtZero: true,
         ticks: {
           precision: 0,
+          color: chartTheme.textColor,
+          font: {
+            size: 12,
+            weight: '500'
+          }
         },
         grid: {
           display: true,
-          color: 'rgba(0, 0, 0, 0.05)',
+          color: chartTheme.gridColor,
+          drawBorder: false,
         }
       },
       x: {
+        ticks: {
+          color: chartTheme.textColor,
+          font: {
+            size: 12,
+            weight: '600'
+          }
+        },
         grid: {
-          display: false
+          display: false,
+          drawBorder: false,
         }
       }
     },
     maintainAspectRatio: false,
     animation: {
-      duration: 1200,
+      duration: parseInt(animation.duration.verySlow) * 2.4,
       easing: 'easeOutElastic',
     }
   };

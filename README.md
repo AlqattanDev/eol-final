@@ -1,187 +1,147 @@
 # AWS End-of-Life Dashboard
 
-A modern dashboard for tracking and monitoring AWS resources with end-of-life and end-of-support information, helping organizations manage their infrastructure lifecycle more effectively.
+A local-first Progressive Web App (PWA) for tracking and monitoring AWS resources with end-of-life (EOL) and end-of-support (EOS) information.
 
-![AWS EOL Dashboard](/public/dashboard-preview.png)
+![Status](https://img.shields.io/badge/status-active-green)
+![License](https://img.shields.io/badge/license-MIT-blue)
 
 ## Features
 
-- **Resource Tracking**: Monitor end-of-life and end-of-support dates for AWS resources (EC2, RDS, EKS, Lambda)
-- **Dashboard Visualization**: Visual representation of resource status, types, and timelines
-- **Advanced Filtering**: Search, filter, and sort resources by various attributes
-- **Status Indicators**: Easily identify expired resources, resources expiring soon, and supported resources
-- **Notification Settings**: Configure email and Slack notifications for resources approaching end-of-life
-- **AWS Integration**: Support for multiple AWS accounts and regions
+- 📊 **Dashboard View** - Visual overview of resource status with charts
+- 🔍 **Resource Tracking** - Monitor EC2, RDS, Lambda, and EKS resources
+- 📅 **EOL Monitoring** - Track end-of-life dates for AWS services
+- 💾 **Offline-First** - Works completely offline with local IndexedDB storage
+- 📱 **PWA Support** - Install as a standalone app on any device
+- 🌓 **Dark Mode** - Automatic theme switching based on system preferences
+- 📤 **Import/Export** - Full data portability with JSON/CSV support
+- 🔒 **Privacy-First** - All data stored locally, no cloud dependencies
 
-## Technology Stack
-
-### Frontend
-- React for UI components
-- TailwindCSS for styling with dark mode support
-- Chart.js for data visualization
-- React Router for navigation
-- date-fns for date formatting and calculations
-
-### Backend
-- Node.js Express API server
-- SQLite database for storing AWS resource data
-- Bash script for AWS resource data collection
-- AWS CLI for interacting with AWS services
-
-## Getting Started
+## Quick Start
 
 ### Prerequisites
 
-- Node.js (v14.0 or later)
-- npm or yarn
-- AWS CLI (configured with appropriate permissions)
-- SQLite3
+- Node.js 16+ and npm
+- AWS CLI (for fetching data)
+- Modern web browser
 
-### Backend Installation
+### Installation
 
-1. Navigate to the backend directory:
+1. **Clone the repository**
    ```bash
-   cd backend
+   git clone https://github.com/yourusername/eol-final.git
+   cd eol-final
    ```
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Generate mock data for development (no AWS credentials required):
-   ```bash
-   node generate_mock_data.js
-   ```
-
-4. OR collect real AWS data (requires AWS credentials):
-   ```bash
-   chmod +x fetch_aws_data.sh
-   ./fetch_aws_data.sh
-   ```
-
-5. Start the API server:
-   ```bash
-   npm start
-   ```
-
-   The server will start on port 3001 by default.
-
-### Frontend Installation
-
-1. In a new terminal, navigate to the project root:
-   ```bash
-   cd ..
-   ```
-
-2. Install dependencies:
+2. **Install dependencies**
    ```bash
    npm install
    ```
 
-3. Start the development server:
+3. **Start the development server**
    ```bash
    npm start
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000) to view the dashboard in your browser.
+4. **Open in browser**
+   Navigate to `http://localhost:3000`
 
-## Usage
+## Fetching AWS Data
 
-### Dashboard
+The dashboard uses a shell script to fetch data from AWS:
 
-The main dashboard provides a high-level overview of your resources, including:
-- Summary statistics for total resources, expired resources, and resources expiring soon
-- Status distribution chart showing the proportion of resources by status
-- Resources by type visualization
-- Recently expiring resources table
+1. **Configure AWS CLI**
+   ```bash
+   aws configure
+   ```
 
-### Resources
+2. **Run the fetch script**
+   ```bash
+   ./scripts/fetch-aws-resources.sh
+   ```
 
-The Resources page allows you to:
-- View all resources in a sortable, filterable table
-- Search for specific resources by name
-- Filter resources by type, region, cost, and status
-- Sort resources by any column
+3. **Import data into dashboard**
+   - Go to Settings → Import/Export
+   - Click "Import from File"
+   - Select the generated `data/resources.json`
 
-### Settings
-
-The Settings page enables you to configure:
-- Notification preferences for expiring resources
-- Alert thresholds for warnings and critical notifications
-- AWS account settings and region selection
-- Data refresh intervals
+See [AWS_FETCH_GUIDE.md](AWS_FETCH_GUIDE.md) for detailed instructions.
 
 ## Project Structure
 
 ```
-aws-eol-dashboard/
-├── backend/
-│   ├── routes/         # API route handlers
-│   ├── fetch_aws_data.sh  # AWS data collection script
-│   ├── generate_mock_data.js  # Mock data generator
-│   ├── db.js           # Database middleware
-│   ├── server.js       # Express API server
-│   └── package.json    # Backend dependencies
-├── public/
+eol-final/
+├── public/                 # Static files and PWA assets
 ├── src/
-│   ├── components/     # React components
-│   ├── context/        # React context providers
-│   ├── data/           # Mock data and data utilities
-│   ├── hooks/          # Custom React hooks
-│   ├── services/       # API services
-│   ├── utils/          # Utility functions
-│   ├── App.js          # Main App component with routing
-│   └── index.js        # Entry point
-├── package.json
-└── README.md
+│   ├── components/        # React components
+│   │   ├── ui/           # Reusable UI components
+│   │   ├── Dashboard.js  # Main dashboard view
+│   │   ├── Resources.js  # Resource list view
+│   │   └── Settings.js   # Settings page
+│   ├── config/           # Database configuration
+│   ├── context/          # React context providers
+│   ├── hooks/            # Custom React hooks
+│   └── utils/            # Utility functions
+├── scripts/              # AWS fetch scripts
+│   ├── fetch-aws-resources.sh
+│   └── aws-eol-dates.json
+└── data/                 # Generated data files
 ```
 
-## Customization
+## Key Features
 
-### Theming
+### Progressive Web App (PWA)
+- Install on desktop or mobile
+- Works offline
+- Automatic updates
+- Native app-like experience
 
-The dashboard supports both light and dark modes. The theme can be toggled using the button in the sidebar.
+### Data Management
+- Import/Export resources (JSON/CSV)
+- Backup/Restore functionality
+- Manual resource entry
+- Multi-account support
 
-### Adding New Resource Types
+### Monitoring Features
+- Status indicators (Expired/Expiring/Supported)
+- EOL date tracking
+- Resource filtering and search
+- Visual charts and statistics
 
-To add support for additional AWS resource types:
-1. Update the backend database schema in `backend/fetch_aws_data.sh`
-2. Add a new route handler in the `backend/routes/` directory
-3. Update the mock data generation in `src/data/mockData.js`
-4. Add appropriate icons and labels in the UI components
-5. Update the API service in `src/services/api.js`
+## Development
 
-### Custom Filter Criteria
+### Available Scripts
 
-Additional filters can be added by:
-1. Extending the filter state in `src/components/Resources.js`
-2. Adding UI controls in `src/components/ResourceFilter.js`
-3. Implementing the filter logic in the `filteredResources` function
+- `npm start` - Start development server
+- `npm build` - Build for production
+- `npm test` - Run tests
+
+### Technology Stack
+
+- **Frontend**: React 18, React Router, Framer Motion
+- **Styling**: TailwindCSS, CSS Modules
+- **Database**: Dexie (IndexedDB wrapper)
+- **Charts**: Chart.js with react-chartjs-2
+- **Icons**: Lucide React, Heroicons
+- **Build**: Create React App
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## API Endpoints
-
-- `/api/accounts` - AWS account information
-- `/api/ec2` - EC2 instance data
-- `/api/rds` - RDS instance data 
-- `/api/eks` - EKS cluster data (replaces AKS)
-- `/api/lambda` - Lambda function data
-- `/api/eol` - EOL status across all resources
-- `/api/health` - API health status
-
-## Resource Status Logic
-
-Resources are classified into three statuses:
-- **Expired**: EOL date is in the past
-- **Expiring**: EOL date is within the next 90 days
-- **Supported**: EOL date is more than 90 days in the future
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
-- Icons provided by [Heroicons](https://heroicons.com/) and [Lucide](https://lucide.dev/)
-- Styling based on [Tailwind CSS](https://tailwindcss.com/)
-- Backend powered by [Express](https://expressjs.com/) and [SQLite](https://www.sqlite.org/)
+- AWS for providing comprehensive APIs
+- The open-source community for the amazing tools
+- Contributors and testers
+
+## Support
+
+For issues, questions, or contributions, please open an issue on GitHub.

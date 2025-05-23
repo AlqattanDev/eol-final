@@ -1,25 +1,61 @@
 {
-  "short_name": "AWS EOL Dashboard",
+  "short_name": "EOL Dashboard",
   "name": "AWS End-of-Life Dashboard",
+  "description": "Track and monitor AWS resources with end-of-life information",
   "icons": [
     {
-      "src": "icons/favicon.ico",
+      "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "icons/logo192.png",
+      "src": "logo192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
-      "src": "icons/logo512.png",
+      "src": "logo512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#3B82F6",
+  "background_color": "#0F172A",
+  "orientation": "portrait-primary",
+  "categories": ["productivity", "utilities"],
+  "screenshots": [
+    {
+      "src": "/screenshots/dashboard.png",
+      "type": "image/png",
+      "sizes": "1280x720",
+      "label": "Dashboard view"
+    },
+    {
+      "src": "/screenshots/resources.png",
+      "type": "image/png",
+      "sizes": "1280x720",
+      "label": "Resources view"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "View Dashboard",
+      "short_name": "Dashboard",
+      "description": "View summary dashboard",
+      "url": "/",
+      "icons": [{ "src": "/icons/logo192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "View Resources",
+      "short_name": "Resources",
+      "description": "View all resources",
+      "url": "/resources",
+      "icons": [{ "src": "/icons/logo192.png", "sizes": "192x192" }]
+    }
+  ]
 }

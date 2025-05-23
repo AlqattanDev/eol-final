@@ -9,6 +9,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^3.3.1",
+    "dexie": "^4.0.11",
     "framer-motion": "^12.12.1",
     "lucide-react": "^0.285.0",
     "react": "^18.2.0",
@@ -20,7 +21,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "scripts": {
-    "start": "PORT=8080 react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

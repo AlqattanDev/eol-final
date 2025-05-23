@@ -1,5 +1,5 @@
 import * as React from "react";
-import { cn } from "../../lib/utils";
+import { cn, hoverEffects } from "../../utils/styleUtils";
 import {
   Card,
   CardContent,
@@ -16,41 +16,54 @@ const StatCard = React.forwardRef(
       <Card 
         ref={ref} 
         className={cn(
-          "overflow-hidden transition-all hover:shadow-md h-auto",
-          colorClass === "primary" && "bg-primary/10 dark:bg-primary/5 border-primary/20",
-          colorClass === "destructive" && "bg-destructive/10 dark:bg-destructive/5 border-destructive/20",
-          colorClass === "warning" && "bg-warning/10 dark:bg-warning/5 border-warning/20",
-          colorClass === "success" && "bg-success/10 dark:bg-success/5 border-success/20",
+          "overflow-hidden h-auto group relative",
+          hoverEffects.lift,
+          colorClass === "primary" && "bg-gradient-to-br from-primary/15 to-primary/5 dark:from-primary/10 dark:to-primary/5 border-primary/30 hover:border-primary/50",
+          colorClass === "destructive" && "bg-gradient-to-br from-destructive/15 to-destructive/5 dark:from-destructive/10 dark:to-destructive/5 border-destructive/30 hover:border-destructive/50",
+          colorClass === "warning" && "bg-gradient-to-br from-warning/15 to-warning/5 dark:from-warning/10 dark:to-warning/5 border-warning/30 hover:border-warning/50",
+          colorClass === "success" && "bg-gradient-to-br from-success/15 to-success/5 dark:from-success/10 dark:to-success/5 border-success/30 hover:border-success/50",
           className
         )}
         {...props}
       >
-        <CardHeader className="pb-1 p-3">
+        {/* Glow effect on hover */}
+        <div className={cn(
+          "absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none",
+          colorClass === "primary" && "bg-primary/5",
+          colorClass === "destructive" && "bg-destructive/5",
+          colorClass === "warning" && "bg-warning/5",
+          colorClass === "success" && "bg-success/5",
+        )} />
+        
+        <CardHeader className="pb-2 p-4 relative z-10">
           <div className="flex items-center justify-between">
-            <CardDescription className="text-xs">{title}</CardDescription>
+            <CardDescription className="text-xs font-medium uppercase tracking-wider opacity-80">{title}</CardDescription>
             <span className={cn(
-              "rounded-full p-1.5 flex items-center justify-center h-6 w-6",
-              colorClass === "primary" && "bg-primary/10 text-primary",
-              colorClass === "destructive" && "bg-destructive/10 text-destructive",
-              colorClass === "warning" && "bg-warning/10 text-warning",
-              colorClass === "success" && "bg-success/10 text-success",
+              "rounded-xl p-2 flex items-center justify-center h-8 w-8 transition-all duration-default",
+              "group-hover:scale-110",
+              colorClass === "primary" && "bg-primary/20 text-primary shadow-colored-primary",
+              colorClass === "destructive" && "bg-destructive/20 text-destructive shadow-colored-destructive",
+              colorClass === "warning" && "bg-warning/20 text-warning shadow-colored-warning",
+              colorClass === "success" && "bg-success/20 text-success shadow-colored-success",
             )}>{icon}</span>
           </div>
         </CardHeader>
-        <CardContent className="p-3 pt-0">
+        <CardContent className="p-4 pt-0 relative z-10">
           <div className="flex items-baseline justify-between">
-            <CardTitle className="text-xl font-bold">{value}</CardTitle>
+            <CardTitle className="text-2xl font-bold tracking-tight">{value}</CardTitle>
             {trend && (
               <span className={cn(
-                "flex items-center text-xs font-medium",
-                isPositiveTrend ? "text-success" : "text-destructive"
+                "flex items-center text-sm font-semibold px-2 py-1 rounded-md",
+                isPositiveTrend 
+                  ? "text-success bg-success/10" 
+                  : "text-destructive bg-destructive/10"
               )}>
                 {isPositiveTrend ? "↑" : "↓"} {Math.abs(trend)}%
               </span>
             )}
           </div>
           {description && (
-            <p className="mt-1 text-xs text-muted-foreground">{description}</p>
+            <p className="mt-2 text-xs text-muted-foreground/80 font-medium">{description}</p>
           )}
         </CardContent>
       </Card>

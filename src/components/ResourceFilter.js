@@ -62,9 +62,9 @@ const ResourceFilter = ({
       </CardHeader>
 
       <CardContent>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Search filter */}
-          <div className="col-span-1 lg:col-span-4">
+          <div className="col-span-1 lg:col-span-3">
             <label htmlFor="search" className="block text-sm font-medium mb-1">
               Search
             </label>
@@ -117,26 +117,8 @@ const ResourceFilter = ({
             </Select>
           </div>
 
-          {/* Cost filter */}
-          <div>
-            <label htmlFor="maxCost" className="block text-sm font-medium mb-1">
-              Max Monthly Cost ($)
-            </label>
-            <Input
-              type="number"
-              id="maxCost"
-              name="maxCost"
-              value={filters.maxCost}
-              onChange={handleFilterChange}
-              min="0"
-              step="100"
-              placeholder="No limit"
-              className="w-full"
-            />
-          </div>
-
           {/* Status filters */}
-          <div className="col-span-1 lg:col-span-4">
+          <div className="col-span-1 lg:col-span-3">
             <label className="block text-sm font-medium mb-2">
               Status
             </label>

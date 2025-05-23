@@ -1,0 +1,20 @@
+{
+  "profile": "default",
+  "regions": [
+    "us-east-1",
+    "us-west-2",
+    "eu-west-1",
+    "ap-southeast-1"
+  ],
+  "services": [
+    "ec2",
+    "rds", 
+    "eks",
+    "lambda"
+  ],
+  "serverName": "data-collector-01",
+  "maxRetries": 3,
+  "environment": "production",
+  "accountName": "Production Account",
+  "accountColor": "#FF9500"
+}

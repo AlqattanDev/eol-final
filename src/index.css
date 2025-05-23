@@ -36,19 +36,31 @@
  
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 199 89% 48%;
  
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+    
+    /* Enhanced shadow and glow colors */
+    --glow-primary: 199 89% 65%;
+    --glow-success: 142 76% 50%;
+    --glow-warning: 38 92% 65%;
+    --glow-destructive: 0 84% 75%;
+    
+    /* RGB values for color mixing */
+    --primary-rgb: 59 130 246;
+    --success-rgb: 34 197 94;
+    --warning-rgb: 251 146 60;
+    --destructive-rgb: 239 68 68;
   }
  
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 217.2 32.6% 8%;
     --foreground: 210 40% 98%;
  
-    --card: 222.2 84% 4.9%;
+    --card: 217.2 32.6% 12%;
     --card-foreground: 210 40% 98%;
  
-    --popover: 222.2 84% 4.9%;
+    --popover: 217.2 32.6% 12%;
     --popover-foreground: 210 40% 98%;
  
     --primary: 199 89% 48%;
@@ -72,9 +84,15 @@
     --success: 142 72% 29%;
     --success-foreground: 210 40% 98%;
  
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 217.2 32.6% 20%;
+    --input: 217.2 32.6% 20%;
+    --ring: 199 89% 48%;
+    
+    /* Enhanced shadow and glow colors */
+    --glow-primary: 199 89% 65%;
+    --glow-success: 142 76% 50%;
+    --glow-warning: 38 92% 65%;
+    --glow-destructive: 0 84% 75%;
   }
   
   /* Moved from duplicate @layer base declaration */
@@ -87,19 +105,38 @@
   }
 }
 
-/* Card styles overrides */
-.card {
-  @apply relative overflow-hidden transition-all rounded-lg border shadow-sm p-4;
-  background: hsl(var(--card));
-  border-color: hsl(var(--border));
+/* Additional global styles */
+@layer components {
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/20 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/30;
+  }
+  
+  /* Focus styles */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background;
+  }
+  
+  /* Consistent transitions */
+  .transition-default {
+    @apply transition-all duration-200 ease-in-out;
+  }
+  
+  .transition-colors-default {
+    @apply transition-colors duration-200 ease-in-out;
+  }
 }
 
-.card:hover {
-  @apply shadow-md;
-  transform: translateY(-1px);
-}
-
-/* Add glassmorphism effects to certain elements */
-.glassmorphism {
-  @apply backdrop-blur-md bg-white/60 dark:bg-slate-900/60 border border-white/20 dark:border-slate-700/20 shadow-xl;
-}
+/* Remove duplicate layer base */

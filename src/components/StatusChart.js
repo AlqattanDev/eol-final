@@ -3,6 +3,7 @@ import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import useChartAnimation from '../hooks/useChartAnimation';
 import ChartCard from './ui/ChartCard';
+import { getStatusColor, getChartTheme, animation } from '../utils/styleUtils';
 
 // Register ChartJS components
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -11,6 +12,10 @@ ChartJS.register(ArcElement, Tooltip, Legend);
  * StatusChart component shows a doughnut chart of resource statuses with animation
  */
 const StatusChart = ({ data }) => {
+  // Check if dark mode is active
+  const isDarkMode = document.documentElement.classList.contains('dark');
+  const chartTheme = getChartTheme(isDarkMode);
+  
   // Memoize the data array to prevent recreation on each render
   const dataArray = useMemo(() => [
     data.expired, 
@@ -33,16 +38,16 @@ const StatusChart = ({ data }) => {
       {
         data: animatedData,
         backgroundColor: [
-          'rgba(239, 68, 68, 0.7)',
-          'rgba(245, 158, 11, 0.7)',
-          'rgba(34, 197, 94, 0.7)',
+          getStatusColor('expired', 0.8),
+          getStatusColor('expiring', 0.8),
+          getStatusColor('supported', 0.8),
         ],
         borderColor: [
-          'rgb(239, 68, 68)',
-          'rgb(245, 158, 11)',
-          'rgb(34, 197, 94)',
+          getStatusColor('expired', 1),
+          getStatusColor('expiring', 1),
+          getStatusColor('supported', 1),
         ],
-        borderWidth: 1,
+        borderWidth: 2,
         hoverOffset: 10,
       },
     ],
@@ -58,7 +63,8 @@ const StatusChart = ({ data }) => {
           padding: 20,
           font: {
             size: 12
-          }
+          },
+          color: chartTheme.textColor
         }
       },
       tooltip: {
@@ -72,7 +78,7 @@ const StatusChart = ({ data }) => {
           }
         },
         animation: {
-          duration: 400,
+          duration: parseInt(animation.duration.slow),
           easing: 'easeOutQuart'
         }
       }
@@ -82,7 +88,7 @@ const StatusChart = ({ data }) => {
     animation: {
       animateRotate: true,
       animateScale: true,
-      duration: 1000,
+      duration: parseInt(animation.duration.verySlow) * 2,
       easing: 'easeOutCubic'
     }
   };
