@@ -1,0 +1,54 @@
+{
+  "members": [],
+  "roles": [
+    {
+      "id": "developer",
+      "name": "Developer",
+      "skills": [
+        "coding",
+        "debugging",
+        "testing"
+      ]
+    },
+    {
+      "id": "designer",
+      "name": "Designer",
+      "skills": [
+        "ui",
+        "ux",
+        "graphics"
+      ]
+    },
+    {
+      "id": "pm",
+      "name": "Project Manager",
+      "skills": [
+        "planning",
+        "coordination",
+        "communication"
+      ]
+    },
+    {
+      "id": "qa",
+      "name": "QA Engineer",
+      "skills": [
+        "testing",
+        "automation",
+        "documentation"
+      ]
+    },
+    {
+      "id": "devops",
+      "name": "DevOps Engineer",
+      "skills": [
+        "deployment",
+        "infrastructure",
+        "monitoring"
+      ]
+    }
+  ],
+  "metadata": {
+    "created": "2025-05-24T10:38:14.586Z",
+    "lastUpdated": "2025-05-24T10:38:14.586Z"
+  }
+}

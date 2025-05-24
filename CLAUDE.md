@@ -365,7 +365,7 @@ The project includes a comprehensive testing automation framework with AutoSpect
 
 #### Test Structure
 
-```
+```text
 tests/
 ├── e2e/                          # End-to-end tests
 │   ├── dashboard.spec.js         # Dashboard functionality
@@ -426,7 +426,7 @@ The project includes a complete VS Code integration setup inspired by Code MCP c
 
 #### VS Code Configuration Files
 
-```
+```text
 .vscode/
 ├── settings.json              # Editor and workspace settings
 ├── extensions.json            # Recommended extensions
@@ -501,4 +501,136 @@ code .
 # Install recommended extensions when prompted
 # Use Ctrl+Shift+P to access command palette
 # Use Ctrl+Shift+` to open integrated terminal
+```
+
+## 📋 Project Management System
+
+### Comprehensive Task Management
+
+The project includes a Shrimp Task Manager-inspired project management system with the following capabilities:
+
+#### Core Components
+
+1. **Task Manager** (`project-management/task-manager.js`)
+   - Create, update, and manage project tasks
+   - Track task status, priority, and dependencies
+   - Assign tasks to team members
+   - Filter and search tasks by various criteria
+
+2. **Project Planner** (`project-management/project-planner.js`)
+   - Analyze project health and risk factors
+   - Timeline analysis with estimate accuracy
+   - Dependency analysis and critical path identification
+   - Generate comprehensive project status reports
+
+3. **Milestone Tracker** (`project-management/milestone-tracker.js`)
+   - Create and track project milestones
+   - Monitor milestone progress and deadlines
+   - Assign tasks to milestones
+   - Analyze milestone statistics and risks
+
+4. **Team Manager** (`project-management/team-manager.js`)
+   - Manage team members and roles
+   - Track individual workload and capacity
+   - Assign tasks to team members
+   - Analyze team workload distribution
+   - Find best team member for specific tasks
+
+5. **Project Reporter** (`project-management/project-reporter.js`)
+   - Generate executive summary reports
+   - Create detailed project reports
+   - Export data to CSV format
+   - Generate HTML reports with visualizations
+   - Automated report generation and saving
+
+#### Project Management Commands
+
+```bash
+# Task Management
+npm run task                    # Show task manager help
+npm run task:list              # List all tasks
+npm run task:add               # Add a new task
+npm run task:update            # Update task details
+npm run task:assign            # Assign task to team member
+
+# Project Analysis
+npm run project:health         # Analyze project health
+npm run project:timeline       # Analyze timeline and estimates
+npm run project:dependencies   # Analyze task dependencies
+npm run project:report         # Generate comprehensive report
+
+# Milestone Management
+npm run milestone              # Show milestone help
+npm run milestone:list         # List all milestones
+npm run milestone:create       # Create new milestone
+npm run milestone:analyze      # Analyze milestone statistics
+
+# Team Management
+npm run team                   # Show team manager help
+npm run team:list             # List team members
+npm run team:add              # Add new team member
+npm run team:workload         # Analyze team workload
+
+# Report Generation
+npm run report:summary         # Generate executive summary
+npm run report:detailed        # Generate and save detailed report
+npm run report:html            # Generate and open HTML report
+npm run report:all             # Generate all report formats
+```
+
+#### Data Structure
+
+The project management system uses JSON files for data persistence:
+
+- `project-management/tasks.json` - Task definitions and project structure
+- `project-management/milestones.json` - Milestone tracking data
+- `project-management/team.json` - Team member information
+- `project-management/reports/` - Generated reports directory
+
+#### Task Schema
+
+```javascript
+{
+  id: "task-001",
+  title: "Task title",
+  description: "Detailed description",
+  status: "pending|in_progress|completed|blocked|review|cancelled",
+  priority: "low|medium|high|critical",
+  category: "feature|bug|enhancement|documentation|testing|infrastructure",
+  estimatedHours: 8,
+  actualHours: 0,
+  assignee: "member-id",
+  dependencies: ["task-id1", "task-id2"],
+  createdDate: "ISO date",
+  updatedDate: "ISO date"
+}
+```
+
+#### Integration with Development Workflow
+
+The project management system is designed to integrate seamlessly with the AWS EOL Dashboard development:
+
+1. **Task Categories** align with project components (Frontend, Backend, Testing, etc.)
+2. **Status tracking** helps monitor development progress
+3. **Dependency management** ensures proper task sequencing
+4. **Team workload analysis** prevents developer burnout
+5. **Milestone tracking** keeps the project on schedule
+
+#### Best Practices
+
+1. **Regular Updates**: Update task status as work progresses
+2. **Time Tracking**: Record actual hours for better future estimates
+3. **Dependency Management**: Define task dependencies to avoid blockers
+4. **Team Balance**: Monitor workload to ensure even distribution
+5. **Milestone Planning**: Create milestones for major releases
+6. **Report Generation**: Generate weekly status reports for stakeholders
+
+#### Testing
+
+Integration tests for the project management system are located in:
+- `tests/e2e/project-management.spec.js`
+
+Run tests with:
+```bash
+npm run test:e2e -- tests/e2e/project-management.spec.js
 ```

@@ -1,0 +1,1572 @@
+<testsuites id="" name="" tests="45" failures="27" skipped="0" errors="0" time="55.503496">
+<testsuite name="accessibility.spec.js" timestamp="2025-05-24T10:34:08.406Z" hostname="chromium" tests="11" failures="5" skipped="0" time="31.094" errors="0">
+<testcase name="Accessibility Tests › should not have any automatically detectable accessibility issues on dashboard" classname="accessibility.spec.js" time="2.015">
+<failure message="accessibility.spec.js:5:7 should not have any automatically detectable accessibility issues on dashboard" type="FAILURE">
+<![CDATA[  [chromium] › accessibility.spec.js:5:7 › Accessibility Tests › should not have any automatically detectable accessibility issues on dashboard 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  -   1
+    + Received  + 223
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure buttons have discernible text",
+    +     "help": "Buttons must have discernible text",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/button-name?application=playwright",
+    +     "id": "button-name",
+    +     "impact": "critical",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "button-has-visible-text",
+    +             "impact": "critical",
+    +             "message": "Element does not have inner text that is visible to screen readers",
+    +             "relatedNodes": Array [],
+    +           },
+    +           Object {
+    +             "data": null,
+    +             "id": "aria-label",
+    +             "impact": "critical",
+    +             "message": "aria-label attribute does not exist or is empty",
+    +             "relatedNodes": Array [],
+    +           },
+    +           Object {
+    +             "data": null,
+    +             "id": "aria-labelledby",
+    +             "impact": "critical",
+    +             "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty",
+    +             "relatedNodes": Array [],
+    +           },
+    +           Object {
+    +             "data": Object {
+    +               "messageKey": "noAttr",
+    +             },
+    +             "id": "non-empty-title",
+    +             "impact": "critical",
+    +             "message": "Element has no title attribute",
+    +             "relatedNodes": Array [],
+    +           },
+    +           Object {
+    +             "data": null,
+    +             "id": "implicit-label",
+    +             "impact": "critical",
+    +             "message": "Element does not have an implicit (wrapped) <label>",
+    +             "relatedNodes": Array [],
+    +           },
+    +           Object {
+    +             "data": null,
+    +             "id": "explicit-label",
+    +             "impact": "critical",
+    +             "message": "Element does not have an explicit <label>",
+    +             "relatedNodes": Array [],
+    +           },
+    +           Object {
+    +             "data": null,
+    +             "id": "presentational-role",
+    +             "impact": "critical",
+    +             "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+    +             "relatedNodes": Array [],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element does not have inner text that is visible to screen readers
+    +   aria-label attribute does not exist or is empty
+    +   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty
+    +   Element has no title attribute
+    +   Element does not have an implicit (wrapped) <label>
+    +   Element does not have an explicit <label>
+    +   Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+    +         "html": "<button class=\"inline-flex items-center justify-center px-md py-sm font-medium transition-all duration-default focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap transform active:scale-95 hover:bg-accent hover:text-accent-foreground hover:shadow-sm h-9 rounded-lg px-3 text-xs\">",
+    +         "impact": "critical",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".space-y-1\\.5.flex-col.p-1\\.5rem > .justify-between.items-center.flex > .space-x-2.items-center.flex > .h-9.px-md.py-sm",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.name-role-value",
+    +       "wcag2a",
+    +       "wcag412",
+    +       "section508",
+    +       "section508.22.a",
+    +       "TTv5",
+    +       "TT6.a",
+    +       "EN-301-549",
+    +       "EN-9.4.1.2",
+    +       "ACT",
+    +     ],
+    +   },
+    +   Object {
+    +     "description": "Ensure the order of headings is semantically correct",
+    +     "help": "Heading levels should only increase by one",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/heading-order?application=playwright",
+    +     "id": "heading-order",
+    +     "impact": "moderate",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "heading-order",
+    +             "impact": "moderate",
+    +             "message": "Heading order invalid",
+    +             "relatedNodes": Array [],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Heading order invalid",
+    +         "html": "<h3 class=\"text-2xl font-bold tracking-tight\" data-testid=\"stat-value\">6</h3>",
+    +         "impact": "moderate",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".from-primary\\/15 > .pt-0.z-10.p-4 > .items-baseline.justify-between.flex > .text-2xl.tracking-tight[data-testid=\"stat-value\"]",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.semantics",
+    +       "best-practice",
+    +     ],
+    +   },
+    +   Object {
+    +     "description": "Ensure [role=\"img\"] elements have alternative text",
+    +     "help": "[role=\"img\"] elements must have an alternative text",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/role-img-alt?application=playwright",
+    +     "id": "role-img-alt",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "aria-label",
+    +             "impact": "serious",
+    +             "message": "aria-label attribute does not exist or is empty",
+    +             "relatedNodes": Array [],
+    +           },
+    +           Object {
+    +             "data": null,
+    +             "id": "aria-labelledby",
+    +             "impact": "serious",
+    +             "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty",
+    +             "relatedNodes": Array [],
+    +           },
+    +           Object {
+    +             "data": Object {
+    +               "messageKey": "noAttr",
+    +             },
+    +             "id": "non-empty-title",
+    +             "impact": "serious",
+    +             "message": "Element has no title attribute",
+    +             "relatedNodes": Array [],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   aria-label attribute does not exist or is empty
+    +   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty
+    +   Element has no title attribute",
+    +         "html": "<canvas role=\"img\" height=\"192\" width=\"426\" style=\"box-sizing: border-box; display: block; height: 192px; width: 426px;\"></canvas>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "div:nth-child(1) > .h-64.shadow-xl.from-card\\/95 > .h-48.pt-0.p-1\\.5rem > canvas",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "aria-label",
+    +             "impact": "serious",
+    +             "message": "aria-label attribute does not exist or is empty",
+    +             "relatedNodes": Array [],
+    +           },
+    +           Object {
+    +             "data": null,
+    +             "id": "aria-labelledby",
+    +             "impact": "serious",
+    +             "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty",
+    +             "relatedNodes": Array [],
+    +           },
+    +           Object {
+    +             "data": Object {
+    +               "messageKey": "noAttr",
+    +             },
+    +             "id": "non-empty-title",
+    +             "impact": "serious",
+    +             "message": "Element has no title attribute",
+    +             "relatedNodes": Array [],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   aria-label attribute does not exist or is empty
+    +   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty
+    +   Element has no title attribute",
+    +         "html": "<canvas role=\"img\" height=\"192\" width=\"426\" style=\"box-sizing: border-box; display: block; height: 192px; width: 426px;\"></canvas>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "div[delay=\"0.2\"] > .h-64.shadow-xl.from-card\\/95 > .h-48.pt-0.p-1\\.5rem > canvas",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.text-alternatives",
+    +       "wcag2a",
+    +       "wcag111",
+    +       "section508",
+    +       "section508.22.a",
+    +       "TTv5",
+    +       "TT7.a",
+    +       "EN-301-549",
+    +       "EN-9.1.1.1",
+    +       "ACT",
+    +     ],
+    +   },
+    + ]
+
+       9 |     const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
+      10 |     
+    > 11 |     expect(accessibilityScanResults.violations).toEqual([]);
+         |                                                 ^
+      12 |   });
+      13 |
+      14 |   test('should not have any automatically detectable accessibility issues on resources page', async ({ page }) => {
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/accessibility.spec.js:11:49
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/accessibility-Accessibilit-54435-ibility-issues-on-dashboard-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/accessibility-Accessibilit-54435-ibility-issues-on-dashboard-chromium/video-1.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/accessibility-Accessibilit-54435-ibility-issues-on-dashboard-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/accessibility-Accessibilit-54435-ibility-issues-on-dashboard-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/accessibility-Accessibilit-54435-ibility-issues-on-dashboard-chromium/video-1.webm]]
+
+[[ATTACHMENT|../../test-results/accessibility-Accessibilit-54435-ibility-issues-on-dashboard-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Accessibility Tests › should not have any automatically detectable accessibility issues on resources page" classname="accessibility.spec.js" time="11.325">
+<failure message="accessibility.spec.js:14:7 should not have any automatically detectable accessibility issues on resources page" type="FAILURE">
+<![CDATA[  [chromium] › accessibility.spec.js:14:7 › Accessibility Tests › should not have any automatically detectable accessibility issues on resources page 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="resources-page"]') to be visible
+
+
+      14 |   test('should not have any automatically detectable accessibility issues on resources page', async ({ page }) => {
+      15 |     await page.goto('/resources');
+    > 16 |     await page.waitForSelector('[data-testid="resources-page"]', { timeout: 10000 });
+         |                ^
+      17 |     
+      18 |     const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
+      19 |     
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/accessibility.spec.js:16:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/accessibility-Accessibilit-3f472-ty-issues-on-resources-page-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/accessibility-Accessibilit-3f472-ty-issues-on-resources-page-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/accessibility-Accessibilit-3f472-ty-issues-on-resources-page-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/accessibility-Accessibilit-3f472-ty-issues-on-resources-page-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Accessibility Tests › should not have any automatically detectable accessibility issues on settings page" classname="accessibility.spec.js" time="1.934">
+<failure message="accessibility.spec.js:23:7 should not have any automatically detectable accessibility issues on settings page" type="FAILURE">
+<![CDATA[  [chromium] › accessibility.spec.js:23:7 › Accessibility Tests › should not have any automatically detectable accessibility issues on settings page 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  -   1
+    + Received  + 289
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=playwright",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#f0fdf4",
+    +               "contrastRatio": 3.14,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#16a34a",
+    +               "fontSize": "10.5pt (14px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 3.14 (foreground color: #16a34a, background color: #f0fdf4, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<div class=\"flex items-center justify-between p-4 bg-green-50 dark:bg-green-900/20 rounded-lg\">",
+    +                 "target": Array [
+    +                   ".bg-green-50",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 3.14 (foreground color: #16a34a, background color: #f0fdf4, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<p class=\"text-sm text-green-600 dark:text-green-400\">Using IndexedDB for offline data storage</p>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".space-x-3.flex.items-center > div:nth-child(2) > .text-green-600.dark\\:text-green-400",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#0da2e7",
+    +               "contrastRatio": 2.73,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#f8fafc",
+    +               "fontSize": "10.5pt (14px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 2.73 (foreground color: #f8fafc, background color: #0da2e7, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<button class=\"inline-flex items-center justify-center rounded-md px-md py-sm text-sm font-medium transition-all duration-default focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap transform active:scale-95 bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 h-11 px-5 py-2 w-full md:w-auto\" type=\"submit\">",
+    +                 "target": Array [
+    +                   ".text-primary-foreground",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 2.73 (foreground color: #f8fafc, background color: #0da2e7, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<button class=\"inline-flex items-center justify-center rounded-md px-md py-sm text-sm font-medium transition-all duration-default focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap transform active:scale-95 bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 h-11 px-5 py-2 w-full md:w-auto\" type=\"submit\">",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".text-primary-foreground",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.color",
+    +       "wcag2aa",
+    +       "wcag143",
+    +       "TTv5",
+    +       "TT13.c",
+    +       "EN-301-549",
+    +       "EN-9.1.4.3",
+    +       "ACT",
+    +     ],
+    +   },
+    +   Object {
+    +     "description": "Ensure the order of headings is semantically correct",
+    +     "help": "Heading levels should only increase by one",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/heading-order?application=playwright",
+    +     "id": "heading-order",
+    +     "impact": "moderate",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "heading-order",
+    +             "impact": "moderate",
+    +             "message": "Heading order invalid",
+    +             "relatedNodes": Array [],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Heading order invalid",
+    +         "html": "<h3 class=\"text-2xl font-semibold leading-none flex items-center\">",
+    +         "impact": "moderate",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".p-lg.backdrop-blur-\\[10px\\].bg-white\\/70:nth-child(1) > .space-y-1\\.5.flex-col.p-1\\.5rem > .text-2xl.leading-none.font-semibold",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.semantics",
+    +       "best-practice",
+    +     ],
+    +   },
+    +   Object {
+    +     "description": "Ensure every form element has a label",
+    +     "help": "Form elements must have labels",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/label?application=playwright",
+    +     "id": "label",
+    +     "impact": "critical",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "implicit-label",
+    +             "impact": "critical",
+    +             "message": "Element does not have an implicit (wrapped) <label>",
+    +             "relatedNodes": Array [],
+    +           },
+    +           Object {
+    +             "data": null,
+    +             "id": "explicit-label",
+    +             "impact": "critical",
+    +             "message": "Element does not have an explicit <label>",
+    +             "relatedNodes": Array [],
+    +           },
+    +           Object {
+    +             "data": null,
+    +             "id": "aria-label",
+    +             "impact": "critical",
+    +             "message": "aria-label attribute does not exist or is empty",
+    +             "relatedNodes": Array [],
+    +           },
+    +           Object {
+    +             "data": null,
+    +             "id": "aria-labelledby",
+    +             "impact": "critical",
+    +             "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty",
+    +             "relatedNodes": Array [],
+    +           },
+    +           Object {
+    +             "data": Object {
+    +               "messageKey": "noAttr",
+    +             },
+    +             "id": "non-empty-title",
+    +             "impact": "critical",
+    +             "message": "Element has no title attribute",
+    +             "relatedNodes": Array [],
+    +           },
+    +           Object {
+    +             "data": Object {
+    +               "messageKey": "noAttr",
+    +             },
+    +             "id": "non-empty-placeholder",
+    +             "impact": "critical",
+    +             "message": "Element has no placeholder attribute",
+    +             "relatedNodes": Array [],
+    +           },
+    +           Object {
+    +             "data": null,
+    +             "id": "presentational-role",
+    +             "impact": "critical",
+    +             "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+    +             "relatedNodes": Array [],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element does not have an implicit (wrapped) <label>
+    +   Element does not have an explicit <label>
+    +   aria-label attribute does not exist or is empty
+    +   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty
+    +   Element has no title attribute
+    +   Element has no placeholder attribute
+    +   Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+    +         "html": "<input type=\"checkbox\" name=\"emailNotifications\" class=\"h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary\" checked=\"\">",
+    +         "impact": "critical",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "input[name=\"emailNotifications\"]",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "implicit-label",
+    +             "impact": "critical",
+    +             "message": "Element does not have an implicit (wrapped) <label>",
+    +             "relatedNodes": Array [],
+    +           },
+    +           Object {
+    +             "data": null,
+    +             "id": "explicit-label",
+    +             "impact": "critical",
+    +             "message": "Element does not have an explicit <label>",
+    +             "relatedNodes": Array [],
+    +           },
+    +           Object {
+    +             "data": null,
+    +             "id": "aria-label",
+    +             "impact": "critical",
+    +             "message": "aria-label attribute does not exist or is empty",
+    +             "relatedNodes": Array [],
+    +           },
+    +           Object {
+    +             "data": null,
+    +             "id": "aria-labelledby",
+    +             "impact": "critical",
+    +             "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty",
+    +             "relatedNodes": Array [],
+    +           },
+    +           Object {
+    +             "data": Object {
+    +               "messageKey": "noAttr",
+    +             },
+    +             "id": "non-empty-title",
+    +             "impact": "critical",
+    +             "message": "Element has no title attribute",
+    +             "relatedNodes": Array [],
+    +           },
+    +           Object {
+    +             "data": Object {
+    +               "messageKey": "noAttr",
+    +             },
+    +             "id": "non-empty-placeholder",
+    +             "impact": "critical",
+    +             "message": "Element has no placeholder attribute",
+    +             "relatedNodes": Array [],
+    +           },
+    +           Object {
+    +             "data": null,
+    +             "id": "presentational-role",
+    +             "impact": "critical",
+    +             "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+    +             "relatedNodes": Array [],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element does not have an implicit (wrapped) <label>
+    +   Element does not have an explicit <label>
+    +   aria-label attribute does not exist or is empty
+    +   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty
+    +   Element has no title attribute
+    +   Element has no placeholder attribute
+    +   Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+    +         "html": "<input type=\"checkbox\" class=\"h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary\">",
+    +         "impact": "critical",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".pt-4.border-t:nth-child(3) > .justify-between.flex.items-center > .rounded.text-primary[type=\"checkbox\"]",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.forms",
+    +       "wcag2a",
+    +       "wcag412",
+    +       "section508",
+    +       "section508.22.n",
+    +       "TTv5",
+    +       "TT5.c",
+    +       "EN-301-549",
+    +       "EN-9.4.1.2",
+    +       "ACT",
+    +     ],
+    +   },
+    + ]
+
+      27 |     const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
+      28 |     
+    > 29 |     expect(accessibilityScanResults.violations).toEqual([]);
+         |                                                 ^
+      30 |   });
+      31 |
+      32 |   test('should support keyboard navigation', async ({ page }) => {
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/accessibility.spec.js:29:49
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/accessibility-Accessibilit-c536c-ity-issues-on-settings-page-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/accessibility-Accessibilit-c536c-ity-issues-on-settings-page-chromium/video-1.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/accessibility-Accessibilit-c536c-ity-issues-on-settings-page-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/accessibility-Accessibilit-c536c-ity-issues-on-settings-page-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/accessibility-Accessibilit-c536c-ity-issues-on-settings-page-chromium/video-1.webm]]
+
+[[ATTACHMENT|../../test-results/accessibility-Accessibilit-c536c-ity-issues-on-settings-page-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Accessibility Tests › should support keyboard navigation" classname="accessibility.spec.js" time="1.825">
+</testcase>
+<testcase name="Accessibility Tests › should support screen reader navigation" classname="accessibility.spec.js" time="1.826">
+</testcase>
+<testcase name="Accessibility Tests › should have proper form accessibility" classname="accessibility.spec.js" time="1.692">
+</testcase>
+<testcase name="Accessibility Tests › should have proper color contrast" classname="accessibility.spec.js" time="1.468">
+</testcase>
+<testcase name="Accessibility Tests › should support high contrast mode" classname="accessibility.spec.js" time="5.95">
+<failure message="accessibility.spec.js:138:7 should support high contrast mode" type="FAILURE">
+<![CDATA[  [chromium] › accessibility.spec.js:138:7 › Accessibility Tests › should support high contrast mode 
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: locator('button').first()
+    Expected: visible
+    Received: hidden
+    Call log:
+      - expect.toBeVisible with timeout 5000ms
+      - waiting for locator('button').first()
+        9 × locator resolved to <button class="inline-flex items-center justify-center rounded-md px-md py-sm text-sm font-medium transition-all duration-default focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap transform active:scale-95 hover:bg-accent hover:text-accent-foreground hover:shadow-sm h-10 w-10">…</button>
+          - unexpected value "hidden"
+
+
+      153 |     if (buttonCount > 0) {
+      154 |       for (let i = 0; i < Math.min(buttonCount, 3); i++) {
+    > 155 |         await expect(buttons.nth(i)).toBeVisible();
+          |                                      ^
+      156 |       }
+      157 |     }
+      158 |   });
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/accessibility.spec.js:155:38
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/accessibility-Accessibilit-1358c--support-high-contrast-mode-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/accessibility-Accessibilit-1358c--support-high-contrast-mode-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/accessibility-Accessibilit-1358c--support-high-contrast-mode-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/accessibility-Accessibilit-1358c--support-high-contrast-mode-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Accessibility Tests › should support reduced motion preferences" classname="accessibility.spec.js" time="1.031">
+</testcase>
+<testcase name="Accessibility Tests › should have proper focus management" classname="accessibility.spec.js" time="0.992">
+</testcase>
+<testcase name="Accessibility Tests › should have proper ARIA attributes" classname="accessibility.spec.js" time="1.036">
+<failure message="accessibility.spec.js:214:7 should have proper ARIA attributes" type="FAILURE">
+<![CDATA[  [chromium] › accessibility.spec.js:214:7 › Accessibility Tests › should have proper ARIA attributes 
+
+    Error: expect(received).toBeTruthy()
+
+    Received: ""
+
+      234 |           (textContent && textContent.trim().length > 0);
+      235 |         
+    > 236 |         expect(hasAccessibleName).toBeTruthy();
+          |                                   ^
+      237 |       }
+      238 |     }
+      239 |   });
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/accessibility.spec.js:236:35
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/accessibility-Accessibilit-332ae-have-proper-ARIA-attributes-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/accessibility-Accessibilit-332ae-have-proper-ARIA-attributes-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/accessibility-Accessibilit-332ae-have-proper-ARIA-attributes-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/accessibility-Accessibilit-332ae-have-proper-ARIA-attributes-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="dashboard.spec.js" timestamp="2025-05-24T10:34:08.406Z" hostname="chromium" tests="10" failures="4" skipped="0" time="23.87" errors="0">
+<testcase name="AWS EOL Dashboard › should load the dashboard page" classname="dashboard.spec.js" time="5.791">
+<failure message="dashboard.spec.js:10:7 should load the dashboard page" type="FAILURE">
+<![CDATA[  [chromium] › dashboard.spec.js:10:7 › AWS EOL Dashboard › should load the dashboard page ─────────
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: locator('[data-testid="status-chart"]')
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+      - expect.toBeVisible with timeout 5000ms
+      - waiting for locator('[data-testid="status-chart"]')
+
+
+      13 |     
+      14 |     // Check for key dashboard components
+    > 15 |     await expect(page.locator('[data-testid="status-chart"]')).toBeVisible();
+         |                                                                ^
+      16 |     await expect(page.locator('[data-testid="type-distribution-chart"]')).toBeVisible();
+      17 |     await expect(page.locator('[data-testid="recent-expirations-table"]')).toBeVisible();
+      18 |   });
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/dashboard.spec.js:15:64
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/dashboard-AWS-EOL-Dashboard-should-load-the-dashboard-page-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/dashboard-AWS-EOL-Dashboard-should-load-the-dashboard-page-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/dashboard-AWS-EOL-Dashboard-should-load-the-dashboard-page-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/dashboard-AWS-EOL-Dashboard-should-load-the-dashboard-page-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="AWS EOL Dashboard › should display summary statistics" classname="dashboard.spec.js" time="5.835">
+<failure message="dashboard.spec.js:20:7 should display summary statistics" type="FAILURE">
+<![CDATA[  [chromium] › dashboard.spec.js:20:7 › AWS EOL Dashboard › should display summary statistics ──────
+
+    Error: Timed out 5000ms waiting for expect(locator).toHaveCount(expected)
+
+    Locator: locator('[data-testid="stat-card"]')
+    Expected: 4
+    Received: 3
+    Call log:
+      - expect.toHaveCount with timeout 5000ms
+      - waiting for locator('[data-testid="stat-card"]')
+        9 × locator resolved to 3 elements
+          - unexpected value "3"
+
+
+      21 |     // Check for stat cards
+      22 |     const statCards = page.locator('[data-testid="stat-card"]');
+    > 23 |     await expect(statCards).toHaveCount(4); // Total, Expired, Expiring, Supported
+         |                             ^
+      24 |     
+      25 |     // Verify stat card content
+      26 |     await expect(statCards.first()).toContainText('Total Resources');
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/dashboard.spec.js:23:29
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/dashboard-AWS-EOL-Dashboar-02bd3--display-summary-statistics-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/dashboard-AWS-EOL-Dashboar-02bd3--display-summary-statistics-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/dashboard-AWS-EOL-Dashboar-02bd3--display-summary-statistics-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/dashboard-AWS-EOL-Dashboar-02bd3--display-summary-statistics-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="AWS EOL Dashboard › should render charts correctly" classname="dashboard.spec.js" time="0.866">
+<failure message="dashboard.spec.js:29:7 should render charts correctly" type="FAILURE">
+<![CDATA[  [chromium] › dashboard.spec.js:29:7 › AWS EOL Dashboard › should render charts correctly ─────────
+
+    Error: expect: Property 'toHaveCountGreaterThan' not found.
+
+      33 |     // Check if charts are rendered (canvas elements should be present)
+      34 |     const canvasElements = page.locator('canvas');
+    > 35 |     await expect(canvasElements).toHaveCountGreaterThan(0);
+         |                                 ^
+      36 |   });
+      37 |
+      38 |   test('should navigate between pages', async ({ page }) => {
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/dashboard.spec.js:35:33
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/dashboard-AWS-EOL-Dashboard-should-render-charts-correctly-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/dashboard-AWS-EOL-Dashboard-should-render-charts-correctly-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/dashboard-AWS-EOL-Dashboard-should-render-charts-correctly-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/dashboard-AWS-EOL-Dashboard-should-render-charts-correctly-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="AWS EOL Dashboard › should navigate between pages" classname="dashboard.spec.js" time="1.101">
+</testcase>
+<testcase name="AWS EOL Dashboard › should handle dark mode toggle" classname="dashboard.spec.js" time="1.056">
+</testcase>
+<testcase name="AWS EOL Dashboard › should be responsive on mobile" classname="dashboard.spec.js" time="0.804">
+</testcase>
+<testcase name="AWS EOL Dashboard › should handle account selection" classname="dashboard.spec.js" time="0.84">
+</testcase>
+<testcase name="AWS EOL Dashboard › should display recent expirations table" classname="dashboard.spec.js" time="5.885">
+<failure message="dashboard.spec.js:102:7 should display recent expirations table" type="FAILURE">
+<![CDATA[  [chromium] › dashboard.spec.js:102:7 › AWS EOL Dashboard › should display recent expirations table 
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: locator('[data-testid="recent-expirations-table"]')
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+      - expect.toBeVisible with timeout 5000ms
+      - waiting for locator('[data-testid="recent-expirations-table"]')
+
+
+      102 |   test('should display recent expirations table', async ({ page }) => {
+      103 |     const table = page.locator('[data-testid="recent-expirations-table"]');
+    > 104 |     await expect(table).toBeVisible();
+          |                         ^
+      105 |     
+      106 |     // Check table headers
+      107 |     await expect(table.locator('th')).toContainText(['Resource', 'Service', 'Status', 'EOL Date']);
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/dashboard.spec.js:104:25
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/dashboard-AWS-EOL-Dashboar-64e3a-ay-recent-expirations-table-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/dashboard-AWS-EOL-Dashboar-64e3a-ay-recent-expirations-table-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/dashboard-AWS-EOL-Dashboar-64e3a-ay-recent-expirations-table-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/dashboard-AWS-EOL-Dashboar-64e3a-ay-recent-expirations-table-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="AWS EOL Dashboard › should handle error states gracefully" classname="dashboard.spec.js" time="0.845">
+</testcase>
+<testcase name="AWS EOL Dashboard › should load and display data correctly" classname="dashboard.spec.js" time="0.847">
+</testcase>
+</testsuite>
+<testsuite name="performance.spec.js" timestamp="2025-05-24T10:34:08.406Z" hostname="chromium" tests="10" failures="7" skipped="0" time="119.007" errors="0">
+<testcase name="Performance Tests › should load dashboard within acceptable time" classname="performance.spec.js" time="0.97">
+<system-out>
+<![CDATA[Dashboard load time: 598ms
+]]>
+</system-out>
+</testcase>
+<testcase name="Performance Tests › should render charts within acceptable time" classname="performance.spec.js" time="1.852">
+<system-out>
+<![CDATA[Charts render time: 1042ms
+]]>
+</system-out>
+</testcase>
+<testcase name="Performance Tests › should have good Core Web Vitals" classname="performance.spec.js" time="30.19">
+<failure message="performance.spec.js:45:7 should have good Core Web Vitals" type="FAILURE">
+<![CDATA[  [chromium] › performance.spec.js:45:7 › Performance Tests › should have good Core Web Vitals ─────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.evaluate: Test timeout of 30000ms exceeded.
+
+       at ../utils/test-helpers.js:236
+
+      234 |
+      235 |   async measureFirstContentfulPaint() {
+    > 236 |     const fcp = await this.page.evaluate(() => {
+          |                                 ^
+      237 |       return new Promise((resolve) => {
+      238 |         new PerformanceObserver((list) => {
+      239 |           for (const entry of list.getEntries()) {
+        at PerformanceHelper.measureFirstContentfulPaint (/Users/alialqattan/Projects/eol-final/tests/utils/test-helpers.js:236:33)
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/performance.spec.js:50:41
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/performance-Performance-Te-166bd-d-have-good-Core-Web-Vitals-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/performance-Performance-Te-166bd-d-have-good-Core-Web-Vitals-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/performance-Performance-Te-166bd-d-have-good-Core-Web-Vitals-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/performance-Performance-Te-166bd-d-have-good-Core-Web-Vitals-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Performance Tests › should handle large datasets efficiently" classname="performance.spec.js" time="10.797">
+<failure message="performance.spec.js:94:7 should handle large datasets efficiently" type="FAILURE">
+<![CDATA[  [chromium] › performance.spec.js:94:7 › Performance Tests › should handle large datasets efficiently 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="resources-page"]') to be visible
+
+
+       at ../utils/test-helpers.js:12
+
+      10 |  */
+      11 | export async function waitForElement(page, selector, timeout = 10000) {
+    > 12 |   await page.waitForSelector(selector, { timeout });
+         |              ^
+      13 | }
+      14 |
+      15 | /**
+        at waitForElement (/Users/alialqattan/Projects/eol-final/tests/utils/test-helpers.js:12:14)
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/performance.spec.js:96:25
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/performance-Performance-Te-5cd65--large-datasets-efficiently-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/performance-Performance-Te-5cd65--large-datasets-efficiently-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/performance-Performance-Te-5cd65--large-datasets-efficiently-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/performance-Performance-Te-5cd65--large-datasets-efficiently-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Performance Tests › should filter data efficiently" classname="performance.spec.js" time="10.737">
+<failure message="performance.spec.js:114:7 should filter data efficiently" type="FAILURE">
+<![CDATA[  [chromium] › performance.spec.js:114:7 › Performance Tests › should filter data efficiently ──────
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="resources-page"]') to be visible
+
+
+       at ../utils/test-helpers.js:12
+
+      10 |  */
+      11 | export async function waitForElement(page, selector, timeout = 10000) {
+    > 12 |   await page.waitForSelector(selector, { timeout });
+         |              ^
+      13 | }
+      14 |
+      15 | /**
+        at waitForElement (/Users/alialqattan/Projects/eol-final/tests/utils/test-helpers.js:12:14)
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/performance.spec.js:116:25
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/performance-Performance-Tests-should-filter-data-efficiently-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/performance-Performance-Tests-should-filter-data-efficiently-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/performance-Performance-Tests-should-filter-data-efficiently-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/performance-Performance-Tests-should-filter-data-efficiently-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Performance Tests › should search efficiently" classname="performance.spec.js" time="10.66">
+<failure message="performance.spec.js:145:7 should search efficiently" type="FAILURE">
+<![CDATA[  [chromium] › performance.spec.js:145:7 › Performance Tests › should search efficiently ───────────
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="resources-page"]') to be visible
+
+
+       at ../utils/test-helpers.js:12
+
+      10 |  */
+      11 | export async function waitForElement(page, selector, timeout = 10000) {
+    > 12 |   await page.waitForSelector(selector, { timeout });
+         |              ^
+      13 | }
+      14 |
+      15 | /**
+        at waitForElement (/Users/alialqattan/Projects/eol-final/tests/utils/test-helpers.js:12:14)
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/performance.spec.js:147:25
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/performance-Performance-Tests-should-search-efficiently-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/performance-Performance-Tests-should-search-efficiently-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/performance-Performance-Tests-should-search-efficiently-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/performance-Performance-Tests-should-search-efficiently-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Performance Tests › should navigate between pages efficiently" classname="performance.spec.js" time="11.034">
+<failure message="performance.spec.js:171:7 should navigate between pages efficiently" type="FAILURE">
+<![CDATA[  [chromium] › performance.spec.js:171:7 › Performance Tests › should navigate between pages efficiently 
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="resources-page"]') to be visible
+
+
+       at ../utils/test-helpers.js:12
+
+      10 |  */
+      11 | export async function waitForElement(page, selector, timeout = 10000) {
+    > 12 |   await page.waitForSelector(selector, { timeout });
+         |              ^
+      13 | }
+      14 |
+      15 | /**
+        at waitForElement (/Users/alialqattan/Projects/eol-final/tests/utils/test-helpers.js:12:14)
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/performance.spec.js:179:25
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/performance-Performance-Te-882d2-e-between-pages-efficiently-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/performance-Performance-Te-882d2-e-between-pages-efficiently-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/performance-Performance-Te-882d2-e-between-pages-efficiently-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/performance-Performance-Te-882d2-e-between-pages-efficiently-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Performance Tests › should handle mobile performance well" classname="performance.spec.js" time="1.163">
+<system-out>
+<![CDATA[Mobile load time: 929ms
+]]>
+</system-out>
+</testcase>
+<testcase name="Performance Tests › should have efficient memory usage" classname="performance.spec.js" time="10.907">
+<failure message="performance.spec.js:217:7 should have efficient memory usage" type="FAILURE">
+<![CDATA[  [chromium] › performance.spec.js:217:7 › Performance Tests › should have efficient memory usage ──
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="resources-page"]') to be visible
+
+
+       at ../utils/test-helpers.js:12
+
+      10 |  */
+      11 | export async function waitForElement(page, selector, timeout = 10000) {
+    > 12 |   await page.waitForSelector(selector, { timeout });
+         |              ^
+      13 | }
+      14 |
+      15 | /**
+        at waitForElement (/Users/alialqattan/Projects/eol-final/tests/utils/test-helpers.js:12:14)
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/performance.spec.js:236:27
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/performance-Performance-Te-2853c-have-efficient-memory-usage-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/performance-Performance-Te-2853c-have-efficient-memory-usage-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/performance-Performance-Te-2853c-have-efficient-memory-usage-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/performance-Performance-Te-2853c-have-efficient-memory-usage-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Performance Tests › should handle concurrent operations efficiently" classname="performance.spec.js" time="30.697">
+<failure message="performance.spec.js:269:7 should handle concurrent operations efficiently" type="FAILURE">
+<![CDATA[  [chromium] › performance.spec.js:269:7 › Performance Tests › should handle concurrent operations efficiently 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.waitForSelector: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="resources-page"]') to be visible
+
+
+      276 |     const operations = [
+      277 |       page.click('a[href="/resources"]'),
+    > 278 |       page.waitForSelector('[data-testid="resources-page"]'),
+          |            ^
+      279 |       page.goBack(),
+      280 |       page.waitForSelector('[data-testid="dashboard"]')
+      281 |     ];
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/performance.spec.js:278:12
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/performance-Performance-Te-e40ec-rent-operations-efficiently-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/performance-Performance-Te-e40ec-rent-operations-efficiently-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/performance-Performance-Te-e40ec-rent-operations-efficiently-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/performance-Performance-Te-e40ec-rent-operations-efficiently-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="resources.spec.js" timestamp="2025-05-24T10:34:08.406Z" hostname="chromium" tests="11" failures="11" skipped="0" time="118.374" errors="0">
+<testcase name="Resources Page › should load the resources page" classname="resources.spec.js" time="10.912">
+<failure message="resources.spec.js:9:7 should load the resources page" type="FAILURE">
+<![CDATA[  [chromium] › resources.spec.js:9:7 › Resources Page › should load the resources page ─────────────
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="resources-page"]') to be visible
+
+
+      4 |   test.beforeEach(async ({ page }) => {
+      5 |     await page.goto('/resources');
+    > 6 |     await page.waitForSelector('[data-testid="resources-page"]', { timeout: 10000 });
+        |                ^
+      7 |   });
+      8 |
+      9 |   test('should load the resources page', async ({ page }) => {
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/resources.spec.js:6:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/resources-Resources-Page-should-load-the-resources-page-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/resources-Resources-Page-should-load-the-resources-page-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/resources-Resources-Page-should-load-the-resources-page-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/resources-Resources-Page-should-load-the-resources-page-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Resources Page › should display resource filters" classname="resources.spec.js" time="10.755">
+<failure message="resources.spec.js:14:7 should display resource filters" type="FAILURE">
+<![CDATA[  [chromium] › resources.spec.js:14:7 › Resources Page › should display resource filters ───────────
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="resources-page"]') to be visible
+
+
+      4 |   test.beforeEach(async ({ page }) => {
+      5 |     await page.goto('/resources');
+    > 6 |     await page.waitForSelector('[data-testid="resources-page"]', { timeout: 10000 });
+        |                ^
+      7 |   });
+      8 |
+      9 |   test('should load the resources page', async ({ page }) => {
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/resources.spec.js:6:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/resources-Resources-Page-should-display-resource-filters-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/resources-Resources-Page-should-display-resource-filters-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/resources-Resources-Page-should-display-resource-filters-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/resources-Resources-Page-should-display-resource-filters-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Resources Page › should filter resources by status" classname="resources.spec.js" time="10.737">
+<failure message="resources.spec.js:35:7 should filter resources by status" type="FAILURE">
+<![CDATA[  [chromium] › resources.spec.js:35:7 › Resources Page › should filter resources by status ─────────
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="resources-page"]') to be visible
+
+
+      4 |   test.beforeEach(async ({ page }) => {
+      5 |     await page.goto('/resources');
+    > 6 |     await page.waitForSelector('[data-testid="resources-page"]', { timeout: 10000 });
+        |                ^
+      7 |   });
+      8 |
+      9 |   test('should load the resources page', async ({ page }) => {
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/resources.spec.js:6:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/resources-Resources-Page-should-filter-resources-by-status-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/resources-Resources-Page-should-filter-resources-by-status-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/resources-Resources-Page-should-filter-resources-by-status-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/resources-Resources-Page-should-filter-resources-by-status-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Resources Page › should filter resources by service" classname="resources.spec.js" time="10.72">
+<failure message="resources.spec.js:64:7 should filter resources by service" type="FAILURE">
+<![CDATA[  [chromium] › resources.spec.js:64:7 › Resources Page › should filter resources by service ────────
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="resources-page"]') to be visible
+
+
+      4 |   test.beforeEach(async ({ page }) => {
+      5 |     await page.goto('/resources');
+    > 6 |     await page.waitForSelector('[data-testid="resources-page"]', { timeout: 10000 });
+        |                ^
+      7 |   });
+      8 |
+      9 |   test('should load the resources page', async ({ page }) => {
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/resources.spec.js:6:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/resources-Resources-Page-should-filter-resources-by-service-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/resources-Resources-Page-should-filter-resources-by-service-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/resources-Resources-Page-should-filter-resources-by-service-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/resources-Resources-Page-should-filter-resources-by-service-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Resources Page › should sort resources by columns" classname="resources.spec.js" time="10.732">
+<failure message="resources.spec.js:88:7 should sort resources by columns" type="FAILURE">
+<![CDATA[  [chromium] › resources.spec.js:88:7 › Resources Page › should sort resources by columns ──────────
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="resources-page"]') to be visible
+
+
+      4 |   test.beforeEach(async ({ page }) => {
+      5 |     await page.goto('/resources');
+    > 6 |     await page.waitForSelector('[data-testid="resources-page"]', { timeout: 10000 });
+        |                ^
+      7 |   });
+      8 |
+      9 |   test('should load the resources page', async ({ page }) => {
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/resources.spec.js:6:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/resources-Resources-Page-should-sort-resources-by-columns-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/resources-Resources-Page-should-sort-resources-by-columns-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/resources-Resources-Page-should-sort-resources-by-columns-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/resources-Resources-Page-should-sort-resources-by-columns-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Resources Page › should display resource details" classname="resources.spec.js" time="10.768">
+<failure message="resources.spec.js:112:7 should display resource details" type="FAILURE">
+<![CDATA[  [chromium] › resources.spec.js:112:7 › Resources Page › should display resource details ──────────
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="resources-page"]') to be visible
+
+
+      4 |   test.beforeEach(async ({ page }) => {
+      5 |     await page.goto('/resources');
+    > 6 |     await page.waitForSelector('[data-testid="resources-page"]', { timeout: 10000 });
+        |                ^
+      7 |   });
+      8 |
+      9 |   test('should load the resources page', async ({ page }) => {
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/resources.spec.js:6:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/resources-Resources-Page-should-display-resource-details-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/resources-Resources-Page-should-display-resource-details-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/resources-Resources-Page-should-display-resource-details-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/resources-Resources-Page-should-display-resource-details-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Resources Page › should handle pagination" classname="resources.spec.js" time="10.749">
+<failure message="resources.spec.js:135:7 should handle pagination" type="FAILURE">
+<![CDATA[  [chromium] › resources.spec.js:135:7 › Resources Page › should handle pagination ─────────────────
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="resources-page"]') to be visible
+
+
+      4 |   test.beforeEach(async ({ page }) => {
+      5 |     await page.goto('/resources');
+    > 6 |     await page.waitForSelector('[data-testid="resources-page"]', { timeout: 10000 });
+        |                ^
+      7 |   });
+      8 |
+      9 |   test('should load the resources page', async ({ page }) => {
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/resources.spec.js:6:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/resources-Resources-Page-should-handle-pagination-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/resources-Resources-Page-should-handle-pagination-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/resources-Resources-Page-should-handle-pagination-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/resources-Resources-Page-should-handle-pagination-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Resources Page › should search resources" classname="resources.spec.js" time="10.764">
+<failure message="resources.spec.js:159:7 should search resources" type="FAILURE">
+<![CDATA[  [chromium] › resources.spec.js:159:7 › Resources Page › should search resources ──────────────────
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="resources-page"]') to be visible
+
+
+      4 |   test.beforeEach(async ({ page }) => {
+      5 |     await page.goto('/resources');
+    > 6 |     await page.waitForSelector('[data-testid="resources-page"]', { timeout: 10000 });
+        |                ^
+      7 |   });
+      8 |
+      9 |   test('should load the resources page', async ({ page }) => {
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/resources.spec.js:6:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/resources-Resources-Page-should-search-resources-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/resources-Resources-Page-should-search-resources-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/resources-Resources-Page-should-search-resources-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/resources-Resources-Page-should-search-resources-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Resources Page › should export resources data" classname="resources.spec.js" time="10.72">
+<failure message="resources.spec.js:179:7 should export resources data" type="FAILURE">
+<![CDATA[  [chromium] › resources.spec.js:179:7 › Resources Page › should export resources data ─────────────
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="resources-page"]') to be visible
+
+
+      4 |   test.beforeEach(async ({ page }) => {
+      5 |     await page.goto('/resources');
+    > 6 |     await page.waitForSelector('[data-testid="resources-page"]', { timeout: 10000 });
+        |                ^
+      7 |   });
+      8 |
+      9 |   test('should load the resources page', async ({ page }) => {
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/resources.spec.js:6:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/resources-Resources-Page-should-export-resources-data-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/resources-Resources-Page-should-export-resources-data-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/resources-Resources-Page-should-export-resources-data-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/resources-Resources-Page-should-export-resources-data-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Resources Page › should handle empty state" classname="resources.spec.js" time="10.741">
+<failure message="resources.spec.js:199:7 should handle empty state" type="FAILURE">
+<![CDATA[  [chromium] › resources.spec.js:199:7 › Resources Page › should handle empty state ────────────────
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="resources-page"]') to be visible
+
+
+      4 |   test.beforeEach(async ({ page }) => {
+      5 |     await page.goto('/resources');
+    > 6 |     await page.waitForSelector('[data-testid="resources-page"]', { timeout: 10000 });
+        |                ^
+      7 |   });
+      8 |
+      9 |   test('should load the resources page', async ({ page }) => {
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/resources.spec.js:6:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/resources-Resources-Page-should-handle-empty-state-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/resources-Resources-Page-should-handle-empty-state-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/resources-Resources-Page-should-handle-empty-state-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/resources-Resources-Page-should-handle-empty-state-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Resources Page › should be responsive on mobile" classname="resources.spec.js" time="10.776">
+<failure message="resources.spec.js:227:7 should be responsive on mobile" type="FAILURE">
+<![CDATA[  [chromium] › resources.spec.js:227:7 › Resources Page › should be responsive on mobile ───────────
+
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="resources-page"]') to be visible
+
+
+      4 |   test.beforeEach(async ({ page }) => {
+      5 |     await page.goto('/resources');
+    > 6 |     await page.waitForSelector('[data-testid="resources-page"]', { timeout: 10000 });
+        |                ^
+      7 |   });
+      8 |
+      9 |   test('should load the resources page', async ({ page }) => {
+        at /Users/alialqattan/Projects/eol-final/tests/e2e/resources.spec.js:6:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/resources-Resources-Page-should-be-responsive-on-mobile-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/resources-Resources-Page-should-be-responsive-on-mobile-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../test-results/resources-Resources-Page-should-be-responsive-on-mobile-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../../test-results/resources-Resources-Page-should-be-responsive-on-mobile-chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="setup-verification.spec.js" timestamp="2025-05-24T10:34:08.406Z" hostname="chromium" tests="3" failures="0" skipped="0" time="12.292" errors="0">
+<testcase name="Setup Verification › should verify basic application setup" classname="setup-verification.spec.js" time="5.757">
+</testcase>
+<testcase name="Setup Verification › should load basic page structure" classname="setup-verification.spec.js" time="2.751">
+</testcase>
+<testcase name="Setup Verification › should handle different routes" classname="setup-verification.spec.js" time="3.784">
+</testcase>
+</testsuite>
+</testsuites>
