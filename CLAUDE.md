@@ -316,6 +316,8 @@ chmod +x scripts/fetch-aws-resources.sh
 
 ## Code Quality
 
+- **ESLint Integration**: Code quality enforced via ESLint with `react-app` and `react-app/jest` configurations
+- **Playwright Test Linting**: E2E tests use ESLint disable comments for Jest-specific rules that don't apply to Playwright
 - **Qodana Integration**: Code quality analysis configured via `qodana.yaml`
 - **Build Output**: Production builds available in `build/` directory
 - **Type Safety**: No TypeScript, relying on PropTypes for React components
@@ -410,6 +412,8 @@ node tests/run-tests.js [type]   # Interactive runner
 - **Mobile responsiveness**: Cross-device and viewport testing
 - **CI/CD integration**: GitHub Actions workflow for automated testing
 - **Test data attributes**: Comprehensive `data-testid` coverage for reliable element selection
+- **Conditional test skipping**: Smart test skipping for optional UI elements using `test.skip()` patterns
+- **ESLint compliance**: All test files follow ESLint rules with appropriate rule exceptions for Playwright-specific patterns
 
 #### Test Utilities
 
@@ -512,24 +516,28 @@ The project includes a Shrimp Task Manager-inspired project management system wi
 #### Core Components
 
 1. **Task Manager** (`project-management/task-manager.js`)
+
    - Create, update, and manage project tasks
    - Track task status, priority, and dependencies
    - Assign tasks to team members
    - Filter and search tasks by various criteria
 
 2. **Project Planner** (`project-management/project-planner.js`)
+
    - Analyze project health and risk factors
    - Timeline analysis with estimate accuracy
    - Dependency analysis and critical path identification
    - Generate comprehensive project status reports
 
 3. **Milestone Tracker** (`project-management/milestone-tracker.js`)
+
    - Create and track project milestones
    - Monitor milestone progress and deadlines
    - Assign tasks to milestones
    - Analyze milestone statistics and risks
 
 4. **Team Manager** (`project-management/team-manager.js`)
+
    - Manage team members and roles
    - Track individual workload and capacity
    - Assign tasks to team members
@@ -628,9 +636,11 @@ The project management system is designed to integrate seamlessly with the AWS E
 #### Testing
 
 Integration tests for the project management system are located in:
+
 - `tests/e2e/project-management.spec.js`
 
 Run tests with:
+
 ```bash
 npm run test:e2e -- tests/e2e/project-management.spec.js
 ```
