@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "autospectra": {
+      "command": "npx",
+      "args": ["@samuelvinay91/autospectra-mcp-server"],
+      "env": {
+        "NODE_ENV": "development"
+      }
+    }
+  }
+}

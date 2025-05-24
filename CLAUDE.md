@@ -122,7 +122,7 @@ The original backend has been removed and is being migrated to MongoDB Realm. Cu
 The application uses Dexie (v4.0.11) as an IndexedDB wrapper for client-side data storage:
 
 - **Configuration**: Located in `src/config/database.js` with schema definitions
-- **Collections**: 
+- **Collections**:
   - `resources`: AWS resource information including service, region, EOL dates, and status
   - `accounts`: AWS account metadata with color coding
   - Note: `collectionRuns` is mentioned in docs but not implemented in schema
@@ -218,7 +218,7 @@ Resources are classified into three statuses:
   id: 'auto-increment',
   resourceId: 'string',
   service: 'string',
-  region: 'string', 
+  region: 'string',
   eolDate: 'date',
   eosDate: 'date',
   status: 'string',
@@ -335,3 +335,66 @@ const styles = getStatusStyles('expired');
 // Get chart colors
 const chartColors = getChartColors('background', 0.8);
 ```
+
+## 🧪 Testing Framework
+
+### Comprehensive Testing Suite
+The project includes a comprehensive testing automation framework with AutoSpectra-inspired capabilities:
+
+#### Test Categories
+- **Unit Tests**: Jest + React Testing Library for component testing
+- **E2E Tests**: Playwright with multi-browser support (Chrome, Firefox, Safari, Mobile)
+- **Accessibility Tests**: WCAG 2.1 AA compliance with axe-core integration
+- **Performance Tests**: Core Web Vitals monitoring (FCP, LCP, CLS)
+- **Visual Tests**: Screenshot comparison and UI validation
+
+#### Test Structure
+```
+tests/
+├── e2e/                          # End-to-end tests
+│   ├── dashboard.spec.js         # Dashboard functionality
+│   ├── resources.spec.js         # Resources page testing
+│   ├── accessibility.spec.js     # A11y compliance
+│   ├── performance.spec.js       # Performance metrics
+│   └── setup-verification.spec.js # Basic verification
+├── utils/test-helpers.js         # Testing utilities
+├── playwright.config.js          # Playwright configuration
+└── README.md                     # Testing documentation
+```
+
+#### Running Tests
+```bash
+# Unit tests
+npm test                          # Jest unit tests
+npm run test:coverage            # With coverage
+
+# E2E tests
+npm run test:e2e                 # All E2E tests
+npm run test:e2e:ui              # Interactive mode
+npm run test:e2e:headed          # Visible browser
+npm run test:e2e:debug           # Debug mode
+
+# Specialized tests
+npm run test:accessibility       # A11y tests only
+npm run test:performance         # Performance tests only
+npm run test:all                 # All tests
+
+# Test runner script
+node tests/run-tests.js [type]   # Interactive runner
+```
+
+#### Test Features
+- **Multi-browser testing**: Chrome, Firefox, Safari, Mobile Chrome/Safari
+- **Accessibility compliance**: WCAG 2.1 AA automated checks with axe-core
+- **Performance monitoring**: Core Web Vitals (FCP, LCP, CLS) measurement
+- **Visual regression**: Screenshot comparison and UI validation
+- **Error handling**: Graceful failure and error boundary testing
+- **Mobile responsiveness**: Cross-device and viewport testing
+- **CI/CD integration**: GitHub Actions workflow for automated testing
+- **Test data attributes**: Comprehensive `data-testid` coverage for reliable element selection
+
+#### Test Utilities
+- **Performance helpers**: Timing measurements and Core Web Vitals monitoring
+- **Accessibility helpers**: Keyboard navigation and screen reader testing
+- **Common functions**: Element waiting, screenshot capture, viewport management
+- **Test data**: Predefined test scenarios and mock data

@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { 
+import {
   ServerIcon,
   AlertTriangle,
   Building2,
@@ -12,12 +12,12 @@ import RecentExpirationsTable from './RecentExpirationsTable';
 import { useAccount } from '../context/AccountContext';
 
 // UI Components
-import { 
-  PageContainer, 
-  PageHeader, 
-  PageTitle, 
+import {
+  PageContainer,
+  PageHeader,
+  PageTitle,
   PageDescription,
-  ContentGrid 
+  ContentGrid
 } from './ui/layout';
 import { StatCard } from './ui/stat-card';
 import { Badge } from './ui/badge';
@@ -45,8 +45,8 @@ const StatsSkeleton = () => (
 );
 
 const Dashboard = () => {
-  const { 
-    currentAccount, 
+  const {
+    currentAccount,
     currentAccountResources,
     loading: contextLoading,
     error: contextError
@@ -63,13 +63,13 @@ const Dashboard = () => {
   // Calculate type distribution
   const typeStats = useMemo(() => {
     if (!currentAccountResources) return [];
-    
+
     const distribution = {};
     currentAccountResources.forEach(resource => {
       const type = resource.service || resource.type || 'Unknown';
       distribution[type] = (distribution[type] || 0) + 1;
     });
-    
+
     return Object.entries(distribution).map(([type, count]) => ({
       _id: type,
       count
@@ -78,7 +78,7 @@ const Dashboard = () => {
 
   // Determine loading state
   const isLoading = contextLoading;
-  
+
   // Determine error state
   const error = contextError;
 
@@ -88,7 +88,7 @@ const Dashboard = () => {
   };
 
   return (
-    <PageContainer>
+    <PageContainer data-testid="dashboard">
       <FadeIn>
         <PageHeader>
           <div className="flex items-center justify-between">
@@ -128,9 +128,9 @@ const Dashboard = () => {
           <p className="text-sm text-muted-foreground mt-1">
             {error.message || 'Failed to load dashboard data. Please try again.'}
           </p>
-          <Button 
-            size="sm" 
-            variant="outline" 
+          <Button
+            size="sm"
+            variant="outline"
             className="mt-2"
             onClick={handleRefresh}
           >
@@ -146,34 +146,40 @@ const Dashboard = () => {
         ) : (
           <ContentGrid cols={3}>
             <StaggerItem>
-              <StatCard 
+              <StatCard
                 title="Total Resources"
                 value={stats.total.toString()}
                 icon={<ServerIcon className="h-4 w-4" />}
                 description="Total AWS resources being monitored"
                 colorClass="primary"
+                data-testid="stat-card"
+                data-stat-type="total"
               />
             </StaggerItem>
 
             <StaggerItem>
-              <StatCard 
+              <StatCard
                 title="Expired Resources"
                 value={stats.expired.toString()}
                 icon={<AlertTriangle className="h-4 w-4" />}
                 description="Resources that have reached end-of-life"
                 colorClass="destructive"
                 trend={stats.expired > 0 ? 5 : 0}
+                data-testid="stat-card"
+                data-stat-type="expired"
               />
             </StaggerItem>
 
             <StaggerItem>
-              <StatCard 
+              <StatCard
                 title="Expiring Soon"
                 value={stats.expiring.toString()}
                 icon={<AlertTriangle className="h-4 w-4" />}
                 description="Resources expiring in the next 90 days"
                 colorClass="warning"
                 trend={stats.expiring > 0 ? 12 : 0}
+                data-testid="stat-card"
+                data-stat-type="expiring"
               />
             </StaggerItem>
           </ContentGrid>
@@ -183,28 +189,31 @@ const Dashboard = () => {
       {/* Charts */}
       <ContentGrid cols={2} className="mb-8">
         <AnimateOnView>
-          <StatusChart 
-            data={stats} 
+          <StatusChart
+            data={stats}
             loading={isLoading}
             error={error}
+            data-testid="status-chart"
           />
         </AnimateOnView>
         <AnimateOnView delay={0.2}>
-          <TypeDistributionChart 
-            resources={currentAccountResources} 
+          <TypeDistributionChart
+            resources={currentAccountResources}
             typeStats={typeStats}
             loading={isLoading}
             error={error}
+            data-testid="type-distribution-chart"
           />
         </AnimateOnView>
       </ContentGrid>
 
       {/* Resources expiring soon */}
       <AnimateOnView className="mb-8" delay={0.3}>
-        <RecentExpirationsTable 
+        <RecentExpirationsTable
           resources={currentAccountResources}
           loading={isLoading}
           error={error}
+          data-testid="recent-expirations-table"
         />
       </AnimateOnView>
     </PageContainer>

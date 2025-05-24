@@ -11,10 +11,10 @@ import {
 const StatCard = React.forwardRef(
   ({ className, title, value, icon, description, trend, colorClass, ...props }, ref) => {
     const isPositiveTrend = trend > 0;
-    
+
     return (
-      <Card 
-        ref={ref} 
+      <Card
+        ref={ref}
         className={cn(
           "overflow-hidden h-auto group relative",
           hoverEffects.lift,
@@ -34,7 +34,7 @@ const StatCard = React.forwardRef(
           colorClass === "warning" && "bg-warning/5",
           colorClass === "success" && "bg-success/5",
         )} />
-        
+
         <CardHeader className="pb-2 p-4 relative z-10">
           <div className="flex items-center justify-between">
             <CardDescription className="text-xs font-medium uppercase tracking-wider opacity-80">{title}</CardDescription>
@@ -50,12 +50,12 @@ const StatCard = React.forwardRef(
         </CardHeader>
         <CardContent className="p-4 pt-0 relative z-10">
           <div className="flex items-baseline justify-between">
-            <CardTitle className="text-2xl font-bold tracking-tight">{value}</CardTitle>
+            <CardTitle className="text-2xl font-bold tracking-tight" data-testid="stat-value">{value}</CardTitle>
             {trend && (
               <span className={cn(
                 "flex items-center text-sm font-semibold px-2 py-1 rounded-md",
-                isPositiveTrend 
-                  ? "text-success bg-success/10" 
+                isPositiveTrend
+                  ? "text-success bg-success/10"
                   : "text-destructive bg-destructive/10"
               )}>
                 {isPositiveTrend ? "↑" : "↓"} {Math.abs(trend)}%
