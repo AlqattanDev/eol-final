@@ -1,0 +1,84 @@
+{
+    "folders": [
+        {
+            "name": "AWS EOL Dashboard",
+            "path": "."
+        }
+    ],
+    "settings": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": "explicit",
+            "source.organizeImports": "explicit"
+        },
+        "files.exclude": {
+            "**/node_modules": true,
+            "**/build": true,
+            "**/.git": true,
+            "**/coverage": true,
+            "**/test-results": true,
+            "**/playwright-report": true
+        },
+        "search.exclude": {
+            "**/node_modules": true,
+            "**/build": true,
+            "**/dist": true,
+            "**/.git": true,
+            "**/coverage": true,
+            "**/test-results": true,
+            "**/playwright-report": true
+        }
+    },
+    "extensions": {
+        "recommendations": [
+            "esbenp.prettier-vscode",
+            "dbaeumer.vscode-eslint",
+            "bradlc.vscode-tailwindcss",
+            "dsznajder.es7-react-js-snippets",
+            "ms-playwright.playwright",
+            "eamodio.gitlens",
+            "github.copilot",
+            "streetsidesoftware.code-spell-checker"
+        ]
+    },
+    "tasks": {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "Start Dev Server",
+                "type": "npm",
+                "script": "start",
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                },
+                "presentation": {
+                    "reveal": "always",
+                    "panel": "new"
+                }
+            },
+            {
+                "label": "Run All Tests",
+                "type": "npm",
+                "script": "test:all",
+                "group": "test",
+                "presentation": {
+                    "reveal": "always",
+                    "panel": "new"
+                }
+            }
+        ]
+    },
+    "launch": {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Debug in Chrome",
+                "type": "chrome",
+                "request": "launch",
+                "url": "http://localhost:3000",
+                "webRoot": "${workspaceFolder}/src"
+            }
+        ]
+    }
+}

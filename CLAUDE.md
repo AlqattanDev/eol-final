@@ -60,6 +60,7 @@ The application follows a component-based architecture using React and is styled
 2. **Context API**: The AccountContext provides account selection state management across components.
 
 3. **Components Structure**:
+
    - UI components in `src/components/ui/` provide the design system
    - Page components in `src/components/` implement the main views (Dashboard, Resources, Settings)
    - Specialized visualization components handle charts and data display (StatusChart, TypeDistributionChart)
@@ -67,6 +68,7 @@ The application follows a component-based architecture using React and is styled
    - ChartCard component provides consistent styling for chart visualization elements
 
 4. **Custom Hooks**:
+
    - `useChartAnimation` in `src/hooks/useChartAnimation.js` provides chart animation capabilities with configurable easing functions (cubic and elastic)
    - `useDatabase` provides reactive data querying from the local IndexedDB database
    - `useResources` and `useAccounts` are specialized hooks built on `useDatabase`
@@ -185,6 +187,7 @@ The application uses custom React hooks to encapsulate and reuse complex logic:
 ## Resource Status Logic
 
 Resources are classified into three statuses:
+
 - **Expired**: EOL date is in the past
 - **Expiring**: EOL date is within the next 90 days
 - **Supported**: EOL date is more than 90 days in the future
@@ -192,6 +195,7 @@ Resources are classified into three statuses:
 ## Technology Stack
 
 ### Frontend Dependencies
+
 - **React 18.2**: UI framework with hooks and context
 - **React Router 6**: Client-side routing
 - **Dexie 4.0.11**: IndexedDB wrapper for client-side storage
@@ -206,6 +210,7 @@ Resources are classified into three statuses:
 - **tailwindcss-animate**: Animation utilities
 
 ### Server Dependencies (Stubs only)
+
 - **AWS SDK v3**: Various AWS service clients (not actively used)
 - **Node.js**: ES modules support (type: "module")
 - Note: Better SQLite3 has been removed
@@ -213,6 +218,7 @@ Resources are classified into three statuses:
 ## Data Models
 
 ### Resource Schema
+
 ```javascript
 {
   id: 'auto-increment',
@@ -230,6 +236,7 @@ Resources are classified into three statuses:
 ```
 
 ### Account Schema
+
 ```javascript
 {
   id: 'auto-increment',
@@ -241,6 +248,7 @@ Resources are classified into three statuses:
 ```
 
 ### Collection Run Schema (Not Implemented)
+
 Note: This schema is documented but not currently implemented in the database configuration.
 
 ## Multi-Server Deployment (Not Implemented)
@@ -262,6 +270,7 @@ The application includes AWS CLI-based scripts for collecting resource data:
 - **Output**: Generates `data/resources.json` for import into the application
 
 ### Running AWS Data Collection
+
 ```bash
 # Make script executable
 chmod +x scripts/fetch-aws-resources.sh
@@ -276,6 +285,7 @@ chmod +x scripts/fetch-aws-resources.sh
 ## Development Guidance
 
 ### Data Operations
+
 - Use Dexie hooks (`useDatabase`, `useResources`, `useAccounts`) for all client-side data operations
 - The application currently works offline with IndexedDB storage only
 - Server components are non-functional pending MongoDB Realm migration
@@ -286,6 +296,7 @@ chmod +x scripts/fetch-aws-resources.sh
 - The codebase is in transition - avoid relying on server-side functionality
 
 ### Styling Guidelines
+
 - **Always use design tokens**: Import from `src/utils/styleUtils.js` for consistency
 - **Use semantic colors**: Status-based colors for expired/expiring/supported resources
 - **Apply component presets**: Use `cardStyles`, `buttonStyles`, `inputStyles` for consistency
@@ -314,6 +325,7 @@ chmod +x scripts/fetch-aws-resources.sh
 ## Style System Files
 
 ### Core Files
+
 - **`src/config/design-tokens.js`**: Central source of truth for all design values
 - **`src/utils/styleUtils.js`**: Style utilities, component presets, and helper functions
 - **`src/utils/chartColors.js`**: Chart-specific color system (legacy, now uses design tokens)
@@ -322,6 +334,7 @@ chmod +x scripts/fetch-aws-resources.sh
 - **`tailwind.config.js`**: Tailwind configuration extended with design tokens
 
 ### Key Styling Patterns
+
 ```javascript
 // Import design utilities
 import { cn, getStatusStyles, cardStyles, getChartColors } from '@/utils/styleUtils';
@@ -339,9 +352,11 @@ const chartColors = getChartColors('background', 0.8);
 ## 🧪 Testing Framework
 
 ### Comprehensive Testing Suite
+
 The project includes a comprehensive testing automation framework with AutoSpectra-inspired capabilities:
 
 #### Test Categories
+
 - **Unit Tests**: Jest + React Testing Library for component testing
 - **E2E Tests**: Playwright with multi-browser support (Chrome, Firefox, Safari, Mobile)
 - **Accessibility Tests**: WCAG 2.1 AA compliance with axe-core integration
@@ -349,6 +364,7 @@ The project includes a comprehensive testing automation framework with AutoSpect
 - **Visual Tests**: Screenshot comparison and UI validation
 
 #### Test Structure
+
 ```
 tests/
 ├── e2e/                          # End-to-end tests
@@ -363,6 +379,7 @@ tests/
 ```
 
 #### Running Tests
+
 ```bash
 # Unit tests
 npm test                          # Jest unit tests
@@ -384,6 +401,7 @@ node tests/run-tests.js [type]   # Interactive runner
 ```
 
 #### Test Features
+
 - **Multi-browser testing**: Chrome, Firefox, Safari, Mobile Chrome/Safari
 - **Accessibility compliance**: WCAG 2.1 AA automated checks with axe-core
 - **Performance monitoring**: Core Web Vitals (FCP, LCP, CLS) measurement
@@ -394,7 +412,93 @@ node tests/run-tests.js [type]   # Interactive runner
 - **Test data attributes**: Comprehensive `data-testid` coverage for reliable element selection
 
 #### Test Utilities
+
 - **Performance helpers**: Timing measurements and Core Web Vitals monitoring
 - **Accessibility helpers**: Keyboard navigation and screen reader testing
 - **Common functions**: Element waiting, screenshot capture, viewport management
 - **Test data**: Predefined test scenarios and mock data
+
+## 🔧 VS Code Integration
+
+### Comprehensive Development Environment
+
+The project includes a complete VS Code integration setup inspired by Code MCP capabilities:
+
+#### VS Code Configuration Files
+
+```
+.vscode/
+├── settings.json              # Editor and workspace settings
+├── extensions.json            # Recommended extensions
+├── tasks.json                 # Build and development tasks
+├── launch.json               # Debug configurations
+└── snippets.code-snippets    # Custom code snippets
+```
+
+#### Essential Extensions
+
+- **Code Quality**: ESLint, Prettier, Error Lens, Spell Checker
+- **React Development**: ES7+ React/Redux snippets, Auto Rename Tag, Path IntelliSense
+- **Testing**: Playwright Test for VS Code, Jest Runner, Test Explorer
+- **Git Integration**: GitLens, GitHub Pull Requests, GitHub Copilot
+- **Styling**: Tailwind CSS IntelliSense, CSS Peek
+- **Documentation**: Markdown All in One, Markdown Lint, Mermaid Preview
+
+#### Development Tasks
+
+```bash
+# Available via Ctrl+Shift+P > Tasks: Run Task
+- Start Development Server      # npm start
+- Build Production             # npm run build
+- Run Unit Tests              # npm test
+- Run E2E Tests               # npm run test:e2e
+- Run E2E Tests (UI Mode)     # npm run test:e2e:ui
+- Run Accessibility Tests     # npm run test:accessibility
+- Run Performance Tests       # npm run test:performance
+- Lint Code                   # ESLint validation
+- Format Code                 # Prettier formatting
+- Clean Build                 # Remove build artifacts
+- Fetch AWS Resources         # Run AWS data collection
+- Open Test Report            # View Playwright reports
+```
+
+#### Debug Configurations
+
+- **Debug React App**: Node.js debugging for React development server
+- **Debug React App in Chrome**: Browser debugging with source maps
+- **Debug Jest Tests**: Unit test debugging with breakpoints
+- **Debug Current Jest Test**: Debug specific test with input prompt
+- **Debug Playwright Tests**: E2E test debugging with Playwright inspector
+- **Debug Specific Playwright Test**: Debug individual E2E test files
+- **Debug Build Process**: Troubleshoot build issues
+
+#### Code Snippets
+
+- **React Components**: `rfc` (functional component), `rfcp` (component with props)
+- **React Hooks**: `us` (useState), `ue` (useEffect), `ucb` (useCallback), `um` (useMemo)
+- **Testing**: `pwtest` (Playwright test), `jtest` (Jest test), `rtlr` (React Testing Library)
+- **Utilities**: `cl` (console.log), `tc` (try-catch), `af` (async function)
+- **Project-specific**: `eolstatus` (AWS EOL status helper), `chartjs` (Chart.js config)
+
+#### Workspace Features
+
+- **File Nesting**: Organized file explorer with related files grouped
+- **Search Exclusions**: Optimized search excluding build artifacts and dependencies
+- **Auto-formatting**: Format on save with Prettier integration
+- **Import Organization**: Automatic import sorting and cleanup
+- **Git Integration**: Smart commits, auto-fetch, and conflict resolution
+- **Terminal Integration**: Configured for macOS/zsh with proper font sizing
+
+#### Getting Started with VS Code
+
+```bash
+# Open the workspace
+code aws-eol-dashboard.code-workspace
+
+# Or open the project directory
+code .
+
+# Install recommended extensions when prompted
+# Use Ctrl+Shift+P to access command palette
+# Use Ctrl+Shift+` to open integrated terminal
+```

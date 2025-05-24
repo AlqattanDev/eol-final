@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build outputs
+build/
+dist/
+coverage/
+
+# Test outputs
+test-results/
+playwright-report/
+
+# Generated files
+*.min.js
+*.min.css
+
+# Configuration files that should maintain their format
+.eslintrc.js
+.eslintrc.json
+
+# Markdown files with specific formatting
+CHANGELOG.md
+
+# Data files
+data/*.json
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
